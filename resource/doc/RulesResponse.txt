@@ -1,0 +1,86 @@
+KAI
+
+Registrasi akun 
+
+Endpoint : POST {{KAI}}
+Body Request : name, email, noTelp, NoIdentitas, TipeIdentitas, TglLahir, jenisKelamin, password, konfirmasiPassword
+Authorization : -
+
+contoh :
+{
+    "name" : "Fairuz Azka",
+    "email" : "fairuzazkamaulana@gmail.com",
+    "noTelp" : "085869696969",
+    "NoIdentitas" : "314123456789012,
+    "TipeIdentitas" : "KTP",
+    "TglLahir" : "26/06/2002",
+    "jenisKelamin" : "Laki-Laki",
+    "password" : "Testimoni12345",
+    "konfirmasiPassword" : "Testimoni12345"
+}
+
+Respon 
+{
+    "message" : "Register Successfull",
+    "status" : "200"
+}
+
+
+Login akun 
+
+Endpoint : POST {{KAI}}
+Body Request : email, password
+Authorization : -
+
+contoh :
+{
+    "email" : "fairuzazkamaulana@gmail.com",
+    "password" : "Testimoni12345"
+}
+
+Respon 
+{
+    "message" : "Login Successfull",
+    "status" : "200"
+}
+
+
+PemesananTiket
+
+Endpoint : POST {{KAI}}
+Body Request : "Title, name, TipeIdentitas, NoIdentitas, noTelp, email, Alamat,"
+Authorization : -
+
+contoh
+{
+    "Title" : "Tuan"
+    "name" : "fairuzazkamaulana"\
+    "TipeIdentitas" : "KTP"
+    "NoIdentitas" : "314123456789012"
+    "noTelp" : "085869696969"
+    "email" : "fairuzazkamaulana@gmail.com"
+    "Alamat" : "Jakarta"
+}
+
+Respon
+{
+    "message" : "Ticket Order Successfull"
+}
+
+
+Pembayaran Tiket KAI
+
+Endpoint : GET {{KAI}}
+Body Request : "KodePemesanan, KodePembayaran"
+Authorization : -
+
+contoh
+{
+    "KodePemesanan" : "X9XX9X9",
+    "KodePembayaran" : "1234567890123"
+}
+
+Respon
+{
+    "message" : "Kode Pembayaran Telah Dikirimkan"
+}

@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+
+    <title>PT Kereta Api Indonesia -      Reservasi Tiket
+</title>
+    <link rel="icon" type="image/x-icon" href="https://booking.kai.id/img/fav-icon.png" >
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
+    <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://booking.kai.id/css/slick.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/print.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/jquery.flexdatalist.min.css" rel="stylesheet">
+
+    
+    <link href="https://booking.kai.id/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/custom.css" rel="stylesheet">
+ 
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    </head><body>
+    <div id="app">
+        
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">
+                        <img type="image/x-icon" src="https://booking.kai.id/img/logo-kai-new.png" alt="logo kai" height="30" width="80">
+                    </a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>                        
+                     </button>
+                </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Beranda</a>
+                            </li>
+                            
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                                                    <li class="nav-item">
+                                <a class="nav-link" href="/login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/register">Register</a>
+                            </li>
+                                            </ul>
+                    </div>
+            </div>
+        </nav>	<div id="content-wrapper">
+	    <div class="container">
+
+							<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.1.5/css/iziToast.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.1.5/js/iziToast.min.js"></script><script>iziToast.({title: "",message: "",});</script> -->
+			
+                    <div class="top-cols">
+                            <div class="goesto l"><span class="stasiun-asal">GUBENG</span>  <i class="fas fa-long-arrow-alt-right tujuan"></i> <span class="stasiun-tujuan">GAMBIR</span></div>
+                <div class="second-col">
+                    <p class="date pull-left today"> -
+                        <span class="org-dewasa"> 1 Dewasa</span>
+                        <span>&nbsp;</span>
+                    </p>
+            
+                    <button type="button" class="pull-right btn btn-primary change-cols" data-toggle="collapse" data-target="#collapseForm" aria-expanded="false" aria-controls="collapseForm">
+                        Ganti Pencarian
+                    </button>
+                    <div class="clear"></div>
+
+                    <div class="collapse in" id="collapseForm">
+                        <form method="GET" action="/booking" accept-charset="UTF-8" class="booking" id="searchticket" data-toggle="validator" role="form" autocomplete="off">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="origination" class="goesto field-label-search">Stasiun Asal</label>
+                                    <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-train fa" aria-hidden="true"></i></span>
+                                        <input type="text" name="origination" value="SGU"  id="origination" class="form-control letter" placeholder="Stasiun Asal..."
+                                            data-data="https://booking.kai.id/api/stations2"
+                                            data-search-in='["name","code","cityname"]'
+                                            data-min-length="1"
+                                            data-value-property="code"
+                                            data-text-property="name"
+                                            data-visible-properties='["name","code"]'
+                                            data-selection-require="true">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="destination" class="goesto field-label-search">Stasiun Tujuan</label>
+                                    <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-train fa" aria-hidden="true"></i></span>
+                                        <input type="text" name="destination" value="GMR" id="destination" class="form-control letter" placeholder="Stasiun Tujuan..."
+                                            data-data="https://booking.kai.id/api/stations2"
+                                            data-search-in='["name","code","cityname"]'
+                                            data-min-length="1"
+                                            data-value-property="code"
+                                            data-text-property="name"
+                                            data-visible-properties='["name","code"]'
+                                            data-selection-require="true">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label for="departure_dateh" class="goesto field-label-search">Tanggal Keberangkatan</label>
+                                    <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-calendar-check fa" aria-hidden="true"></i></span>
+                                        <input type="text" name="tanggal" value="" id="departure_dateh" class="form-control no-type " data-error="Mohon diisi tanggal" required="required" onkeypress="">
+                                    </div>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="dewasa" class="goesto">Dewasa</label>
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" data-type="minus" data-field="dewasa"><span class="glyphicon glyphicon-minus"></span></button>
+                                        </span>
+
+                                        <input class="form-control input-number number" name="adult" min="1" max="10" id="dewasa" type="text" value="1">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="dewasa"><span class="glyphicon glyphicon-plus"></span></button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4 info">
+                                    <label for="infant" class="goesto field-label-search">Bayi</label>
+                                    <span style="color: #fff;"><small> (&lt; 3 tahun)</small></span>
+
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" data-type="minus" data-field="infant"><span class="glyphicon glyphicon-minus"></span></button>
+                                        </span>
+
+                                        <input class="form-control input-number number" name="infant" min="0" max="10" id="infant" type="text" value="0">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="infant"><span class="glyphicon glyphicon-plus"></span></button>
+                                        </span>
+                                    </div>
+                                    <span class="tooltiptext">
+                                        Tidak bisa melebihi penumpang dewasa
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+
+                                   <input class="btn sample btn-sample btn-search-booking" name="submit" type="submit" value="Cari &amp; Pesan Tiket">
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                </div>
+    <!-- ambil kereta -->
+		<div class="sort-wrapper">
+			<!-- slick tanggal dan filter
+			<div class="month-wrapper">
+				November 2022
+			</div>
+			<div class="anotherdate">
+				            <form method="POST" action="https://booking.kai.id/search" accept-charset="UTF-8" id="data-20221128"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+					<div class="block-date-wrapper">
+	                    <a href="javascript:;" onclick="document.getElementById('data-20221128').submit();return false;">
+	                        <div class="day">Senin</div>
+	                        <div class="from">28 November 2022</div>
+	                        <div class="price">&nbsp;</div>
+						</a>
+					</div>
+					<input name="tanggal" type="hidden" value="28 November 2022">
+					<input name="departure_dateh" type="hidden" value="28-November-2022">
+	                <input name="origination" type="hidden" value="SGU" class="asal">
+	                <input name="destination" type="hidden" value="GMR">
+	                <input class="hidden-adult-slick" name="adult" type="hidden" value="1">
+	                <input class="hidden-infant-slick" name="infant" type="hidden" value="0">
+	                <input name="flexdatalist-origination" type="hidden" value="SURABAYA GUBENG">
+	                <input name="flexdatalist-destination" type="hidden" value="GAMBIR">
+	            </form>
+            	            <form method="POST" action="https://booking.kai.id/search" accept-charset="UTF-8" id="data-20221129"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+					<div class="block-date-wrapper">
+	                    <a href="javascript:;" onclick="document.getElementById('data-20221129').submit();return false;">
+	                        <div class="day">Selasa</div>
+	                        <div class="from">29 November 2022</div>
+	                        <div class="price">&nbsp;</div>
+						</a>
+					</div>
+					<input name="tanggal" type="hidden" value="29 November 2022">
+					<input name="departure_dateh" type="hidden" value="29-November-2022">
+	                <input name="origination" type="hidden" value="SGU" class="asal">
+	                <input name="destination" type="hidden" value="GMR">
+	                <input class="hidden-adult-slick" name="adult" type="hidden" value="1">
+	                <input class="hidden-infant-slick" name="infant" type="hidden" value="0">
+	                <input name="flexdatalist-origination" type="hidden" value="SURABAYA GUBENG">
+	                <input name="flexdatalist-destination" type="hidden" value="GAMBIR">
+	            </form>
+            	            <form method="POST" action="https://booking.kai.id/search" accept-charset="UTF-8" id="data-20221130"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+					<div class="block-date-wrapper">
+	                    <a href="javascript:;" onclick="document.getElementById('data-20221130').submit();return false;">
+	                        <div class="day">Rabu</div>
+	                        <div class="from">30 November 2022</div>
+	                        <div class="price">&nbsp;</div>
+						</a>
+					</div>
+					<input name="tanggal" type="hidden" value="30 November 2022">
+					<input name="departure_dateh" type="hidden" value="30-November-2022">
+	                <input name="origination" type="hidden" value="SGU" class="asal">
+	                <input name="destination" type="hidden" value="GMR">
+	                <input class="hidden-adult-slick" name="adult" type="hidden" value="1">
+	                <input class="hidden-infant-slick" name="infant" type="hidden" value="0">
+	                <input name="flexdatalist-origination" type="hidden" value="SURABAYA GUBENG">
+	                <input name="flexdatalist-destination" type="hidden" value="GAMBIR">
+	            </form>
+            	            <form method="POST" action="https://booking.kai.id/search" accept-charset="UTF-8" id="data-20221201"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+					<div class="block-date-wrapper">
+	                    <a href="javascript:;" onclick="document.getElementById('data-20221201').submit();return false;">
+	                        <div class="day">Kamis</div>
+	                        <div class="from">1 Desember 2022</div>
+	                        <div class="price">&nbsp;</div>
+						</a>
+					</div>
+					<input name="tanggal" type="hidden" value="1 Desember 2022">
+					<input name="departure_dateh" type="hidden" value="01-December-2022">
+	                <input name="origination" type="hidden" value="SGU" class="asal">
+	                <input name="destination" type="hidden" value="GMR">
+	                <input class="hidden-adult-slick" name="adult" type="hidden" value="1">
+	                <input class="hidden-infant-slick" name="infant" type="hidden" value="0">
+	                <input name="flexdatalist-origination" type="hidden" value="SURABAYA GUBENG">
+	                <input name="flexdatalist-destination" type="hidden" value="GAMBIR">
+	            </form>
+            	            <form method="POST" action="https://booking.kai.id/search" accept-charset="UTF-8" id="data-20221202"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+					<div class="block-date-wrapper">
+	                    <a href="javascript:;" onclick="document.getElementById('data-20221202').submit();return false;">
+	                        <div class="day">Jumat</div>
+	                        <div class="from">2 Desember 2022</div>
+	                        <div class="price">&nbsp;</div>
+						</a>
+					</div>
+					<input name="tanggal" type="hidden" value="2 Desember 2022">
+					<input name="departure_dateh" type="hidden" value="02-December-2022">
+	                <input name="origination" type="hidden" value="SGU" class="asal">
+	                <input name="destination" type="hidden" value="GMR">
+	                <input class="hidden-adult-slick" name="adult" type="hidden" value="1">
+	                <input class="hidden-infant-slick" name="infant" type="hidden" value="0">
+	                <input name="flexdatalist-origination" type="hidden" value="SURABAYA GUBENG">
+	                <input name="flexdatalist-destination" type="hidden" value="GAMBIR">
+	            </form>
+            	            <form method="POST" action="https://booking.kai.id/search" accept-charset="UTF-8" id="data-20221203"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+					<div class="block-date-wrapper">
+	                    <a href="javascript:;" onclick="document.getElementById('data-20221203').submit();return false;">
+	                        <div class="day">Sabtu</div>
+	                        <div class="from">3 Desember 2022</div>
+	                        <div class="price">&nbsp;</div>
+						</a>
+					</div>
+					<input name="tanggal" type="hidden" value="3 Desember 2022">
+					<input name="departure_dateh" type="hidden" value="03-December-2022">
+	                <input name="origination" type="hidden" value="SGU" class="asal">
+	                <input name="destination" type="hidden" value="GMR">
+	                <input class="hidden-adult-slick" name="adult" type="hidden" value="1">
+	                <input class="hidden-infant-slick" name="infant" type="hidden" value="0">
+	                <input name="flexdatalist-origination" type="hidden" value="SURABAYA GUBENG">
+	                <input name="flexdatalist-destination" type="hidden" value="GAMBIR">
+	            </form>
+            	            <form method="POST" action="https://booking.kai.id/search" accept-charset="UTF-8" id="data-20221204"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+					<div class="block-date-wrapper">
+	                    <a href="javascript:;" onclick="document.getElementById('data-20221204').submit();return false;">
+	                        <div class="day">Minggu</div>
+	                        <div class="from">4 Desember 2022</div>
+	                        <div class="price">&nbsp;</div>
+						</a>
+					</div>
+					<input name="tanggal" type="hidden" value="4 Desember 2022">
+					<input name="departure_dateh" type="hidden" value="04-December-2022">
+	                <input name="origination" type="hidden" value="SGU" class="asal">
+	                <input name="destination" type="hidden" value="GMR">
+	                <input class="hidden-adult-slick" name="adult" type="hidden" value="1">
+	                <input class="hidden-infant-slick" name="infant" type="hidden" value="0">
+	                <input name="flexdatalist-origination" type="hidden" value="SURABAYA GUBENG">
+	                <input name="flexdatalist-destination" type="hidden" value="GAMBIR">
+	            </form>
+            </div> -->
+			<!-- end of slick tanggal dan filter -->
+
+			<!-- <div class="sort-column pull-left">
+				<div class="sort-block">
+					<span>Urut Berdasarkan:</span>
+						<div class="block"><button class="btn btn-check btn-class" type="button">Kelas</button></div>
+						<div class="block"><button class="btn btn-check btn-stasiun" type="button">Stasiun</button></div>
+						<div class="block"><button class="btn btn-check btn-kereta" type="button">Kereta</button></div>
+						<div class="block"><button class="btn btn-check btn-waktu" type="button">Waktu</button></div>
+						<div class="block"><button class="btn btn-check btn-harga" type="button">Harga</button></div>
+						<div class="clear"></div>
+				</div>
+			</div> -->
+			<div class="clear"></div>
+			<div class="sort-column view-filter pull-left sort-class">
+				<label class="checkbox-inline"><input type="checkbox" name="class[]"  class="checkbox class-checkbox" value="Eksekutif"> <span>Eksekutif</span></label>
+				<label class="checkbox-inline"><input type="checkbox" name="class[]" class="checkbox class-checkbox" value="Bisnis"> <span>Bisnis</span></label>
+				<label class="checkbox-inline"><input type="checkbox" name="class[]" class="checkbox class-checkbox" value="Ekonomi"> <span>Ekonomi</span></label>
+			</div>
+			<div class="sort-column view-filter pull-left sort-stasiun">
+								<label class="checkbox-inline"><input type="checkbox" name="stasiun[]"  class="checkbox stasiun-checkbox" value="surabaya gubeng"> <span>Surabaya Gubeng</span></label>
+								<label class="checkbox-inline"><input type="checkbox" name="stasiun[]"  class="checkbox stasiun-checkbox" value="gambir"> <span>Gambir</span></label>
+							</div>
+			<div class="sort-column view-filter pull-left sort-kereta">
+								<label class="checkbox-inline"><input type="checkbox" name="kereta[]"  class="checkbox kereta-checkbox" value="bima"> <span>Bima</span></label>
+								<label class="checkbox-inline"><input type="checkbox" name="kereta[]"  class="checkbox kereta-checkbox" value="bima priority"> <span>Bima Priority</span></label>
+							</div>
+			<div class="sort-column view-filter pull-left sort-time" style="display: none">
+				<label class="checkbox-inline">
+					<div class="pull-left">
+						<input type="checkbox" name="time[]"  class="checkbox time-checkbox" value="Pagi - Siang">
+					</div>
+					<div class="pull-left">
+						<div>Pagi - Siang</div>
+						<div>06:00 - 12:00</div>
+					</div>
+				</label>
+				<label class="checkbox-inline">
+					<div class="pull-left">
+						<input type="checkbox" name="time[]"  class="checkbox time-checkbox" value="Siang - Sore">
+					</div>
+					<div class="pull-left">
+						<div>Siang - Sore</div>
+						<div>12:00 - 18:00</div>
+					</div>
+				</label>
+				<label class="checkbox-inline">
+					<div class="pull-left">
+						<input type="checkbox" name="time[]"  class="checkbox time-checkbox" value="Sore - Malam">
+					</div>
+					<div class="pull-left">
+						<div>Sore - Malam</div>
+						<div>18:00 - 00:00</div>
+					</div>
+				</label>
+				<label class="checkbox-inline">
+					<div class="pull-left">
+						<input type="checkbox" name="time[]"  class="checkbox time-checkbox" value="Malam - Pagi">
+					</div>
+					<div class="pull-left">
+						<div>Malam - Pagi</div>
+						<div>00:00 - 06:00</div>
+					</div>
+				</label>
+			</div>
+			<div class="sort-column view-filter pull-left sort-harga">
+				<label class="checkbox-inline"><input type="checkbox" name="harga[]"  class="checkbox stasiun-checkbox" value="Rp 0 - Rp 100.000"> <span>Rp 0 - Rp 100.000</span></label>
+				<label class="checkbox-inline"><input type="checkbox" name="harga[]"  class="checkbox stasiun-checkbox" value="Rp 100.001 - Rp 200.000"> <span>Rp 100.001 - Rp 200.000</span></label>
+				<label class="checkbox-inline"><input type="checkbox" name="harga[]"  class="checkbox stasiun-checkbox" value="Rp 200.001 - Rp 300.000"> <span>Rp 200.001 - Rp 300.000</span></label>
+				<label class="checkbox-inline"><input type="checkbox" name="harga[]"  class="checkbox stasiun-checkbox" value="Rp 300.001 - Rp 400.000"> <span>Rp 300.001 - Rp 400.000</span></label>
+				<label class="checkbox-inline"><input type="checkbox" name="harga[]"  class="checkbox stasiun-checkbox" value="Rp 400.001 - Rp 500.000"> <span>Rp 400.001 - Rp 500.000</span></label>
+				<label class="checkbox-inline"><input type="checkbox" name="harga[]"  class="checkbox stasiun-checkbox" value="Rp 500.001 - Rp 600.000"> <span>Rp 500.001 - Rp 600.000</span></label>
+			</div>
+			<div class="clear"></div>
+		</div><!-- //sort-wrapper -->
+		<div class="column-data">
+			<div class="head-data">
+				<div class="row hidden-xs ">
+					<div class="col-md-3 col-sm-3"><div class="padding-left-20">kereta</div></div>
+					<div class="col-md-2 col-sm-3"><div class="padding-left-15">berangkat</div></div>
+					<div class="col-md-2 col-sm-3"><div class="md-padding-left-30">durasi</div></div>
+					<div class="col-md-2 col-sm-1">tiba</div>
+					<div class="col-md-3 col-sm-5 center">harga</div>
+				</div>
+				<div class="visible-xs hidden-sm">Pilih kereta pergi dari 6 pilihan</div>
+			</div>
+
+								<!-- ticket card -->
+					
+										<!-- end of ticket card -->
+								<!-- ticket card -->
+					
+										<!-- end of ticket card -->
+								<!-- ticket card -->
+					
+					 
+							
+									<div class="data-wrapper">
+									<div class="data-block list-kereta" data-hide="0" data-class="Eksekutif" data-stasiun="surabaya gubeng" data-kereta="bima" data-time="Siang - Sore" data-harga="">
+										<form method="POST" action="https://booking.kai.id/passengerdata" accept-charset="UTF-8" id="data2"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+											<a href="javascript:;" class="card-schedule" onclick="document.getElementById('data2').submit();return false;">
+												<div class="row">
+													<div class="col-md-3 col-sm-3 col-xs-12">
+														<div class="col-one">
+															<div class="name">BIMA <span>(75)</span></div>
+															<div class="{kelas kereta}">Eksekutif (AA)</div>
+														</div>
+													</div>
+												<div class="col-md-6 col-sm-4 col-xs-12">
+													<div class="col-two">
+														<div class="row">
+															<div class="col-md-4 col-sm-4 col-xs-4">
+																<div class="station station-start">SURABAYA GUBENG</div>
+																<div class="times time-start">17:30</div>
+																<div class="station date-start">29 November 2022</div>
+															</div>
+															<div class="col-md-3 col-sm-4 col-xs-2">
+																<div class="arrow"><i class="fas fa-arrow-circle-right"></i></div>
+																<div class="long-time">11j 10m</div>
+															</div>
+															<div class="col-md-5 col-sm-4 col-xs-4 card-arrival">
+																<div class="station station-end">GAMBIR</div>
+																<div class="times time-end">04:40</div>
+																<div class="station station-end">30 November 2022</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-5 col-price col-xs-12 padding-right-5 center">
+													<div class="col-four">
+														<div class="price">Rp 650.000,-</div>
+															<div class="order-wrapper force-center">
+																<div class="order-block btn">Pesan</div>
+															</div>
+																																	<small class="form-text sisa-kursi">Tersedia</small>
+																															
+														</div>
+													</div>
+												</div>
+											</a>
+											<input name="tripdate" type="hidden" value="2022-11-29">
+											<input name="depart_date" type="hidden" value="2022-11-29">
+											<input name="tanggal_sampai" type="hidden" value="2022-11-30">
+											<input name="asal" type="hidden" value="SURABAYA GUBENG">
+											<input name="tujuan" type="hidden" value="GAMBIR">
+											<input name="kodeasal" type="hidden" value="SGU" class="asal">
+											<input name="kodetujuan" type="hidden" value="GMR">
+											<input name="timestart" type="hidden" value="17:30">
+											<input name="timeend" type="hidden" value="04:40">
+											<input name="nokereta" type="hidden" value="75">
+											<input name="kereta" type="hidden" value="BIMA">
+											<input name="kelas" type="hidden" value="AA">
+											<input name="kelas_gerbong" type="hidden" value="EKS">
+											<input name="subkelas" type="hidden" value="AA">
+											<input name="dewasa" type="hidden" value="1">
+											<input name="infant" type="hidden" value="0">
+											<input name="harga" type="hidden" value="650000">
+											<input name="trip_id" type="hidden" value="1897425">
+											<input name="wagonclassid" type="hidden" value="1">
+											<input name="orgid" type="hidden" value="1">
+											<input name="desid" type="hidden" value="15">
+											<input name="propscheduleid" type="hidden" value="539456239">
+										</form>
+									</div>
+								</div> <!-- //data-wrapper -->
+																		
+										<!-- end of ticket card -->
+								<!-- ticket card -->
+					
+										<!-- end of ticket card -->
+								<!-- ticket card -->
+					
+					 
+							
+															<div class="data-wrapper">
+									<div class="data-block list-kereta" data-hide="0" data-class="Eksekutif" data-stasiun="surabaya gubeng" data-kereta="bima priority" data-time="Siang - Sore" data-harga="">
+										<form method="POST" action="https://booking.kai.id/passengerdata" accept-charset="UTF-8" id="data4"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+											<a href="javascript:;" class="card-schedule" onclick="document.getElementById('data4').submit();return false;">
+												<div class="row">
+													<div class="col-md-3 col-sm-3 col-xs-12">
+														<div class="col-one">
+															<div class="name">BIMA PRIORITY <span>(75P)</span></div>
+															<div class="{kelas kereta}">Eksekutif (A)</div>
+														</div>
+													</div>
+												<div class="col-md-6 col-sm-4 col-xs-12">
+													<div class="col-two">
+														<div class="row">
+															<div class="col-md-4 col-sm-4 col-xs-4">
+																<div class="station station-start">SURABAYA GUBENG</div>
+																<div class="times time-start">17:30</div>
+																<div class="station date-start">29 November 2022</div>
+															</div>
+															<div class="col-md-3 col-sm-4 col-xs-2">
+																<div class="arrow"><i class="fas fa-arrow-circle-right"></i></div>
+																<div class="long-time">11j 10m</div>
+															</div>
+															<div class="col-md-5 col-sm-4 col-xs-4 card-arrival">
+																<div class="station station-end">GAMBIR</div>
+																<div class="times time-end">04:40</div>
+																<div class="station station-end">30 November 2022</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-3 col-sm-5 col-price col-xs-12 padding-right-5 center">
+													<div class="col-four">
+														<div class="price">Rp 1.000.000,-</div>
+															<div class="order-wrapper force-center">
+																<div class="order-block btn">Pesan</div>
+															</div>
+															
+																																	<small class="form-text sisa-kursi">Tersisa 18 kursi</small>
+																															
+														</div>
+													</div>
+												</div>
+											</a>
+											<input name="tripdate" type="hidden" value="2022-11-29">
+											<input name="depart_date" type="hidden" value="2022-11-29">
+											<input name="tanggal_sampai" type="hidden" value="2022-11-30">
+											<input name="asal" type="hidden" value="SURABAYA GUBENG">
+											<input name="tujuan" type="hidden" value="GAMBIR">
+											<input name="kodeasal" type="hidden" value="SGU" class="asal">
+											<input name="kodetujuan" type="hidden" value="GMR">
+											<input name="timestart" type="hidden" value="17:30">
+											<input name="timeend" type="hidden" value="04:40">
+											<input name="nokereta" type="hidden" value="75P">
+											<input name="kereta" type="hidden" value="BIMA PRIORITY">
+											<input name="kelas" type="hidden" value="A">
+											<input name="kelas_gerbong" type="hidden" value="EKS">
+											<input name="subkelas" type="hidden" value="A">
+											<input name="dewasa" type="hidden" value="1">
+											<input name="infant" type="hidden" value="0">
+											<input name="harga" type="hidden" value="1000000">
+											<input name="trip_id" type="hidden" value="1933297">
+											<input name="wagonclassid" type="hidden" value="1">
+											<input name="orgid" type="hidden" value="1">
+											<input name="desid" type="hidden" value="15">
+											<input name="propscheduleid" type="hidden" value="561806432">
+										</form>
+									</div>
+								</div> <!-- //data-wrapper -->
+																		
+										<!-- end of ticket card -->
+								<!-- ticket card -->
+					
+										<!-- end of ticket card -->
+			
+								<!-- ticket card -->
+					
+					 
+						<div class="data-wrapper">
+							<div class="data-block list-kereta" data-hide="0" data-class="Eksekutif" data-stasiun="surabaya gubeng" data-kereta="bima" data-time="Siang - Sore" data-harga="Rp 500.001 - Rp 600.000">
+								<form method="POST" action="https://booking.kai.id/passengerdata" accept-charset="UTF-8" id="data0"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+									<a href="javascript:;" class="habis" >
+										<div class="row">
+											<div class="col-md-3 col-sm-3 col-xs-12">
+												<div class="col-one">
+													<div class="name">BIMA <span>(75)</span></div>
+													<div class="{kelas kereta}">Eksekutif (I)</div>
+												</div>
+											</div>
+										<div class="col-md-6 col-sm-4 col-xs-12">
+											<div class="col-two">
+												<div class="row">
+													<div class="col-md-4 col-sm-4 col-xs-4">
+														<div class="station station-start">SURABAYA GUBENG</div>
+														<div class="times time-start">17:30</div>
+														<div class="station date-start">29 November 2022</div>
+													</div>
+													<div class="col-md-3 col-sm-4 col-xs-2">
+														<div class="arrow"><i class="fas fa-arrow-circle-right"></i></div>
+														<div class="long-time">11j 10m</div>
+													</div>
+													<div class="col-md-5 col-sm-4 col-xs-4 card-arrival">
+														<div class="station station-end">GAMBIR</div>
+														<div class="times time-end">04:40</div>
+														<div class="station station-end">30 November 2022</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-3 col-sm-5 col-price col-xs-12 padding-right-5 center">
+											<div class="col-four">
+												<div class="price">Rp 535.000,-</div>
+													<div class="order-wrapper force-center">
+														
+													</div>
+													<small class="form-text sisa-kursi">Habis</small>
+												</div>
+											</div>
+										</div>
+									</a>
+									<input name="tripdate" type="hidden" value="2022-11-29">
+									<input name="depart_date" type="hidden" value="2022-11-29">
+									<input name="tanggal_sampai" type="hidden" value="2022-11-30">
+									<input name="asal" type="hidden" value="SURABAYA GUBENG">
+									<input name="tujuan" type="hidden" value="GAMBIR">
+									<input name="kodeasal" type="hidden" value="SGU" class="asal">
+									<input name="kodetujuan" type="hidden" value="GMR">
+									<input name="timestart" type="hidden" value="17:30">
+									<input name="timeend" type="hidden" value="04:40">
+									<input name="nokereta" type="hidden" value="75">
+									<input name="kereta" type="hidden" value="BIMA">
+									<input name="kelas" type="hidden" value="I">
+									<input name="kelas_gerbong" type="hidden" value="EKS">
+									<input name="subkelas" type="hidden" value="I">
+									<input name="dewasa" type="hidden" value="1">
+									<input name="infant" type="hidden" value="0">
+									<input name="harga" type="hidden" value="535000">
+									<input name="trip_id" type="hidden" value="1897425">
+									<input name="wagonclassid" type="hidden" value="1">
+									<input name="orgid" type="hidden" value="1">
+									<input name="desid" type="hidden" value="15">
+									<input name="propscheduleid" type="hidden" value="539456484">
+								</form>
+							</div>
+						</div> <!-- //data-wrapper -->
+										<!-- end of ticket card -->
+								<!-- ticket card -->
+					
+					 
+						<div class="data-wrapper">
+							<div class="data-block list-kereta" data-hide="0" data-class="Eksekutif" data-stasiun="surabaya gubeng" data-kereta="bima" data-time="Siang - Sore" data-harga="Rp 500.001 - Rp 600.000">
+								<form method="POST" action="https://booking.kai.id/passengerdata" accept-charset="UTF-8" id="data1"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+									<a href="javascript:;" class="habis" >
+										<div class="row">
+											<div class="col-md-3 col-sm-3 col-xs-12">
+												<div class="col-one">
+													<div class="name">BIMA <span>(75)</span></div>
+													<div class="{kelas kereta}">Eksekutif (H)</div>
+												</div>
+											</div>
+										<div class="col-md-6 col-sm-4 col-xs-12">
+											<div class="col-two">
+												<div class="row">
+													<div class="col-md-4 col-sm-4 col-xs-4">
+														<div class="station station-start">SURABAYA GUBENG</div>
+														<div class="times time-start">17:30</div>
+														<div class="station date-start">29 November 2022</div>
+													</div>
+													<div class="col-md-3 col-sm-4 col-xs-2">
+														<div class="arrow"><i class="fas fa-arrow-circle-right"></i></div>
+														<div class="long-time">11j 10m</div>
+													</div>
+													<div class="col-md-5 col-sm-4 col-xs-4 card-arrival">
+														<div class="station station-end">GAMBIR</div>
+														<div class="times time-end">04:40</div>
+														<div class="station station-end">30 November 2022</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-3 col-sm-5 col-price col-xs-12 padding-right-5 center">
+											<div class="col-four">
+												<div class="price">Rp 560.000,-</div>
+													<div class="order-wrapper force-center">
+														
+													</div>
+													<small class="form-text sisa-kursi">Habis</small>
+												</div>
+											</div>
+										</div>
+									</a>
+									<input name="tripdate" type="hidden" value="2022-11-29">
+									<input name="depart_date" type="hidden" value="2022-11-29">
+									<input name="tanggal_sampai" type="hidden" value="2022-11-30">
+									<input name="asal" type="hidden" value="SURABAYA GUBENG">
+									<input name="tujuan" type="hidden" value="GAMBIR">
+									<input name="kodeasal" type="hidden" value="SGU" class="asal">
+									<input name="kodetujuan" type="hidden" value="GMR">
+									<input name="timestart" type="hidden" value="17:30">
+									<input name="timeend" type="hidden" value="04:40">
+									<input name="nokereta" type="hidden" value="75">
+									<input name="kereta" type="hidden" value="BIMA">
+									<input name="kelas" type="hidden" value="H">
+									<input name="kelas_gerbong" type="hidden" value="EKS">
+									<input name="subkelas" type="hidden" value="H">
+									<input name="dewasa" type="hidden" value="1">
+									<input name="infant" type="hidden" value="0">
+									<input name="harga" type="hidden" value="560000">
+									<input name="trip_id" type="hidden" value="1897425">
+									<input name="wagonclassid" type="hidden" value="1">
+									<input name="orgid" type="hidden" value="1">
+									<input name="desid" type="hidden" value="15">
+									<input name="propscheduleid" type="hidden" value="539456344">
+								</form>
+							</div>
+						</div> <!-- //data-wrapper -->
+										<!-- end of ticket card -->
+								<!-- ticket card -->
+					
+										<!-- end of ticket card -->
+								<!-- ticket card -->
+					
+					 
+						<div class="data-wrapper">
+							<div class="data-block list-kereta" data-hide="0" data-class="Eksekutif" data-stasiun="surabaya gubeng" data-kereta="bima" data-time="Siang - Sore" data-harga="">
+								<form method="POST" action="https://booking.kai.id/passengerdata" accept-charset="UTF-8" id="data3"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+									<a href="javascript:;" class="habis" >
+										<div class="row">
+											<div class="col-md-3 col-sm-3 col-xs-12">
+												<div class="col-one">
+													<div class="name">BIMA <span>(75)</span></div>
+													<div class="{kelas kereta}">Eksekutif (A)</div>
+												</div>
+											</div>
+										<div class="col-md-6 col-sm-4 col-xs-12">
+											<div class="col-two">
+												<div class="row">
+													<div class="col-md-4 col-sm-4 col-xs-4">
+														<div class="station station-start">SURABAYA GUBENG</div>
+														<div class="times time-start">17:30</div>
+														<div class="station date-start">29 November 2022</div>
+													</div>
+													<div class="col-md-3 col-sm-4 col-xs-2">
+														<div class="arrow"><i class="fas fa-arrow-circle-right"></i></div>
+														<div class="long-time">11j 10m</div>
+													</div>
+													<div class="col-md-5 col-sm-4 col-xs-4 card-arrival">
+														<div class="station station-end">GAMBIR</div>
+														<div class="times time-end">04:40</div>
+														<div class="station station-end">30 November 2022</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-3 col-sm-5 col-price col-xs-12 padding-right-5 center">
+											<div class="col-four">
+												<div class="price">Rp 620.000,-</div>
+													<div class="order-wrapper force-center">
+														
+													</div>
+													<small class="form-text sisa-kursi">Habis</small>
+												</div>
+											</div>
+										</div>
+									</a>
+									<input name="tripdate" type="hidden" value="2022-11-29">
+									<input name="depart_date" type="hidden" value="2022-11-29">
+									<input name="tanggal_sampai" type="hidden" value="2022-11-30">
+									<input name="asal" type="hidden" value="SURABAYA GUBENG">
+									<input name="tujuan" type="hidden" value="GAMBIR">
+									<input name="kodeasal" type="hidden" value="SGU" class="asal">
+									<input name="kodetujuan" type="hidden" value="GMR">
+									<input name="timestart" type="hidden" value="17:30">
+									<input name="timeend" type="hidden" value="04:40">
+									<input name="nokereta" type="hidden" value="75">
+									<input name="kereta" type="hidden" value="BIMA">
+									<input name="kelas" type="hidden" value="A">
+									<input name="kelas_gerbong" type="hidden" value="EKS">
+									<input name="subkelas" type="hidden" value="A">
+									<input name="dewasa" type="hidden" value="1">
+									<input name="infant" type="hidden" value="0">
+									<input name="harga" type="hidden" value="620000">
+									<input name="trip_id" type="hidden" value="1897425">
+									<input name="wagonclassid" type="hidden" value="1">
+									<input name="orgid" type="hidden" value="1">
+									<input name="desid" type="hidden" value="15">
+									<input name="propscheduleid" type="hidden" value="539456134">
+								</form>
+							</div>
+						</div> <!-- //data-wrapper -->
+										<!-- end of ticket card -->
+								<!-- ticket card -->
+					
+										<!-- end of ticket card -->
+								<!-- ticket card -->
+					
+					 
+						<div class="data-wrapper">
+							<div class="data-block list-kereta" data-hide="0" data-class="Eksekutif" data-stasiun="surabaya gubeng" data-kereta="bima" data-time="Siang - Sore" data-harga="Rp 500.001 - Rp 600.000">
+								<form method="POST" action="https://booking.kai.id/passengerdata" accept-charset="UTF-8" id="data5"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+									<a href="javascript:;" class="habis" >
+										<div class="row">
+											<div class="col-md-3 col-sm-3 col-xs-12">
+												<div class="col-one">
+													<div class="name">BIMA <span>(75)</span></div>
+													<div class="{kelas kereta}">Eksekutif (J)</div>
+												</div>
+											</div>
+										<div class="col-md-6 col-sm-4 col-xs-12">
+											<div class="col-two">
+												<div class="row">
+													<div class="col-md-4 col-sm-4 col-xs-4">
+														<div class="station station-start">SURABAYA GUBENG</div>
+														<div class="times time-start">17:30</div>
+														<div class="station date-start">29 November 2022</div>
+													</div>
+													<div class="col-md-3 col-sm-4 col-xs-2">
+														<div class="arrow"><i class="fas fa-arrow-circle-right"></i></div>
+														<div class="long-time">11j 10m</div>
+													</div>
+													<div class="col-md-5 col-sm-4 col-xs-4 card-arrival">
+														<div class="station station-end">GAMBIR</div>
+														<div class="times time-end">04:40</div>
+														<div class="station station-end">30 November 2022</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-3 col-sm-5 col-price col-xs-12 padding-right-5 center">
+											<div class="col-four">
+												<div class="price">Rp 515.000,-</div>
+													<div class="order-wrapper force-center">
+														
+													</div>
+													<small class="form-text sisa-kursi">Habis</small>
+												</div>
+											</div>
+										</div>
+									</a>
+									<input name="tripdate" type="hidden" value="2022-11-29">
+									<input name="depart_date" type="hidden" value="2022-11-29">
+									<input name="tanggal_sampai" type="hidden" value="2022-11-30">
+									<input name="asal" type="hidden" value="SURABAYA GUBENG">
+									<input name="tujuan" type="hidden" value="GAMBIR">
+									<input name="kodeasal" type="hidden" value="SGU" class="asal">
+									<input name="kodetujuan" type="hidden" value="GMR">
+									<input name="timestart" type="hidden" value="17:30">
+									<input name="timeend" type="hidden" value="04:40">
+									<input name="nokereta" type="hidden" value="75">
+									<input name="kereta" type="hidden" value="BIMA">
+									<input name="kelas" type="hidden" value="J">
+									<input name="kelas_gerbong" type="hidden" value="EKS">
+									<input name="subkelas" type="hidden" value="J">
+									<input name="dewasa" type="hidden" value="1">
+									<input name="infant" type="hidden" value="0">
+									<input name="harga" type="hidden" value="515000">
+									<input name="trip_id" type="hidden" value="1897425">
+									<input name="wagonclassid" type="hidden" value="1">
+									<input name="orgid" type="hidden" value="1">
+									<input name="desid" type="hidden" value="15">
+									<input name="propscheduleid" type="hidden" value="539455820">
+								</form>
+							</div>
+						</div> <!-- //data-wrapper -->
+										<!-- end of ticket card -->
+					</div> <!-- //column-data -->
+	        </div> <!-- end of container -->
+	</div> <!-- end of content-wrapper -->
+</div>
+    <!-- Scripts -->
+    <script>
+        BASE_URL = "https://booking.kai.id"+"/";
+    </script>
+    <script src="https://booking.kai.id/js/apps.js"></script>
+    <script src="https://booking.kai.id/js/jquery-3.3.1.min.js"></script>
+    <script src="https://booking.kai.id/js/bootstrap.min.js"></script>
+    <script src="https://booking.kai.id/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://booking.kai.id/js/jquery.flexdatalist.min.js"></script>
+    <script src="https://booking.kai.id/js/bootstrap-validate.js"></script>
+    <script src="https://booking.kai.id/js/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <script src="https://booking.kai.id/js/slick.min.js"></script>
+    <script src="https://booking.kai.id/js/inputValidate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <!-- Inputmask -->
+    <script src="https://booking.kai.id/js/inputmask/inputmask.js"></script>
+    <script src="https://booking.kai.id/js/inputmask/jquery.inputmask.bundle.js"></script>
+    <script src="https://booking.kai.id/js/inputmask/inputmask.numeric.extensions.js"></script>
+	<script src="js/booking.js"></script>
+    <script type="text/javascript">
+	
+    $(function() {
+        let maxval = 4;
+        //data list for station
+        $('#origination, #destination').flexdatalist({
+            minLength: 2,
+            valueProperty: 'code',
+            selectionRequired: true,
+            visibleProperties: ["name","code"],
+            searchIn: ['name','city','code','cityname'],
+            groupBy: 'cityname',
+            data: 'https://booking.kai.id/api/stations2'
+        });
+
+        //init slick slider/slick date
+        let setCenter = '1';
+        $(".anotherdate").slick({
+            centerMode: (setCenter==1 ? true : false),
+            prevArrow: '<button class="prev btnx"><i class="fas fa-arrow-circle-left"></i></button>',
+            nextArrow: '<button class="next btnx"><i class="fas fa-arrow-circle-right"></i></button>',
+            slidesToScroll: 1,
+            slidesToShow: 5,
+            centerPadding: '60px',
+            focusOnSelect:true,
+            initialSlide: 1,
+            responsive: [
+            {
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 3
+                }
+            },
+            {
+            breakpoint: 480,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 1
+                }
+            }]
+        });
+        $( "#accordion .panel-title" ).click(function() {
+            $( this ).toggleClass( "current" );
+            $(".top-column span").css("opacity","1");
+        });
+
+        localStorage.removeItem("captcha");
+
+        //set max value and min value for passenger
+        $('#dewasa').on('change keyup', function(){
+            $('#infant').attr('max', $(this).val());
+            //set infant number to 0
+            if( Number($('#infant').val()) > Number($(this).val()) ) {
+                $('#infant').val('0');
+                $('.hidden-infant-slick').val( $('#infant').val() );
+            }
+
+            /* set hidden value for slick
+             * if field adult & infant change
+             */
+            $('.hidden-adult-slick').val( $(this).val() );
+        });
+        $('#infant, .btn-number').on('click change keyup', function(){
+            maxval = $('#dewasa').val();
+            $('#infant').inputmask("numeric", {
+                mask: "99",
+                rightAlign: false,
+                min: 0,
+                max: maxval,
+                default: 0
+            });
+
+            /* set hidden value for slick
+             * if field adult & infant change
+             */
+            $('.hidden-infant-slick').val( $('#infant').val() );
+        });
+        // $('#infant').change();
+        $('#dewasa').inputmask("numeric", {
+            mask: "99",
+            rightAlign: false,
+            min: 1,
+            max: 10
+        });
+    });
+
+    // APP.initDate( $('#departure_dateh').val(), '2020,1,01',  [["01","01","Tahun Baru Masehi"],["02","01","Tahun Baru Imlek"],["02","28","Isra Mi'raj"],["03","3","Hari Raya Nyepi"],["04","15","Wafat Isa Al Masih"],["05","01","Hari Buruh"],["05","02","Hari Raya Idul Fitri"],["05","03","Hari Raya Idul Fitri"],["05","16","Hari Waisak"],["05","26","Kenaikan Isa Almasih"],["06","01","Hari Lahir Pancasila"],["07","09","Idul Adha"],["07","30","Tahun Baru Islam H 1444"],["08","17","Hari Kemerdekaan RI"],["10","08","Maulid Nabi Muhammad SAW"],["12","24","Cuti Bersama Hari Natal"],["12","25","Hari Natal"]]);
+    // APP.showDate( $('#departure_dateh').val() );
+    APP.addPassengerVal('.btn-number');
+    APP.filterSchedule();
+    APP.noAllowType();
+
+</script>
+    </body>
+</html>

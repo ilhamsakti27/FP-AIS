@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+
+    <title>PT Kereta Api Indonesia -  Register
+</title>
+    <link rel="icon" type="image/x-icon" href="https://booking.kai.id/img/fav-icon.png" >
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
+    <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://booking.kai.id/css/slick.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/print.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/jquery.flexdatalist.min.css" rel="stylesheet">
+
+    
+    <link href="https://booking.kai.id/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/custom.css" rel="stylesheet">
+ 
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    </head><body>
+    <div id="app">
+        
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="https://booking.kai.id">
+                        <img type="image/x-icon" src="https://booking.kai.id/img/logo-kai-new.png" alt="logo kai" height="30" width="80">
+                    </a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>                        
+                     </button>
+                </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://booking.kai.id">Beranda</a>
+                            </li>
+                            
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                                                    <li class="nav-item">
+                                <a class="nav-link" href="https://booking.kai.id/auth/login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://booking.kai.id/register">Register</a>
+                            </li>
+                                            </ul>
+                    </div>
+            </div>
+        </nav>	<div id="content-wrapper">
+	    <div class="container">
+
+							<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.1.5/css/iziToast.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.1.5/js/iziToast.min.js"></script><script>iziToast.({title: "",message: "",});</script>
+			
+                <div class="row">
+        <div class="column-content-left col-md-8 col-sm-12 col-md-offset-2">
+
+        <form method="POST" action="https://booking.kai.id/register" accept-charset="UTF-8" id="register" role="form" data-toggle="validator"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+            <div class="column-box-wrapper">
+                <div class="column-box">
+                <div class="title-box">Biodata</div>
+                    <div class="column-form-box">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group ">
+                                        <label for="member_title">Jenis Kelamin</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                            <select class="form-control" id="member_title" name="member_title"><option value="1">Laki-laki</option><option value="2">Perempuan</option></select>
+                                        </div>
+                                        <div class="help-block with-errors text-danger"></div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="member_tandapengenal">Tipe Identitas</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-id-card fa" aria-hidden="true"></i></span>
+                                        <select class="form-control" id="member_tandapengenal" name="member_tandapengenal"><option value="ktp">NIK</option><option value="paspor">Paspor</option></select>
+                                        </div>
+                                        <div class="help-block with-errors text-danger"></div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="member_tanggallahir">Tanggal Lahir</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-calendar-check fa" aria-hidden="true"></i></span>
+                                        <input class="form-control" id="member_tanggallahir" required data-error="Mohon isi Tanggal Lahir" placeholder="hh-B-tttt" autocomplete="off" onkeypress="return false;" name="member_tanggallahir" type="text">
+                                        </div>
+                                        <div class="help-block with-errors text-danger"></div>
+                                    </div>
+                                    <div class="form-group ">
+                                    <label for="member_nohp">No. HP</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+                                            <input class="form-control number" placeholder="08xxxxx" id="member_nohp" data-error="Mohon isi No HP" required data-minlength="1" maxlength="14" name="member_nohp" type="text">
+                                        </div>
+                                        <div class="help-block with-errors text-danger"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group ">
+                                        <label for="member_nama">Nama Lengkap</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                            <input class="form-control genInfo letter" placeholder="Nama sesuai KTP/Paspor" id="member_nama" data-error="Mohon isi Nama" required name="member_nama" type="text">
+                                        </div>
+                                        <div class="help-block with-errors text-danger"></div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="member_notandapengenal">Nomor Identitas</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-id-card fa" aria-hidden="true"></i></span>
+                                            <input class="form-control genInfo" placeholder="No Identitas sesuai KTP/Paspor" id="member_notandapengenal" data-error="Mohon isi Nomor Identitas" minlength="1" maxlength="16" required name="member_notandapengenal" type="text">
+                                        </div>
+                                        <span class="tooltiptext">
+                                            Untuk penumpang usia mulai 3 s.d 17 tahun tipe identitas 'Lainnya', kolom nomor identitas di isi nomor kartu identitas
+                                            anak/kartu pelajar atau kartu anak lainnya sedangkan untuk yang belum memiliki bukti identitas dapat di isi nomor identitas
+                                            orangtua_tanggal bulan tahun lahir anak (ddmmyyyy) sebagai identitas anak,contoh:332909xxxxxxxxxx_13072013
+                                        </span>
+                                        <div class="help-block with-errors text-danger"></div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="member_email">Email</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                            <input class="form-control" placeholder="me@contoh.co.id" id="member_email" data-error="Mohon isi Email" required name="member_email" type="email">
+                                        </div>
+                                        <div class="help-block with-errors text-danger"></div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <div class="column-box-wrapper">
+                <div class="column-box">
+                <div class="title-box">Otentikasi</div>
+                    <div class="column-form-box">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group ">
+                                    <label for="member_pass1">Password</label>
+                                    <br>
+                                    <span class="grey-helpblock">minimum 6 karakter, kombinasi huruf dan angka</span>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+                                        <input class="form-control pass" placeholder="Password" id="member_pass1" required data-error="Password wajib diisi" name="member_pass1" type="password" value="">
+                                        <i class="glyphicon glyphicon-eye-open form-control-feedback" style="color:black"></i>
+                                    </div>
+                                    <div class="help-block with-errors text-danger"></div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="member_pass2">Konfirmasi Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+                                        <input class="form-control cpass" placeholder="Konfirmasi Password" id="member_pass2" data-error="Konfirmasi Password wajib diisi" required name="member_pass2" type="password" value="">
+                                        <i class="glyphicon glyphicon-eye-open form-control-feedback" style="color:black"></i>
+                                    </div>
+                                    <div class="help-block with-errors text-danger"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div calss="col-md-12">
+            <input class="btn btn-primary btn-lg pull-right" type="submit" value="Register">
+            </div>
+            </form>
+        </div><!-- //column-content-left col-md-8 col-sm-8 col-md-offset-2 -->
+    </div>
+        </div> <!-- end of container -->
+	</div> <!-- end of content-wrapper -->
+</div>
+    <!-- Scripts -->
+    <script>
+        BASE_URL = "https://booking.kai.id"+"/";
+    </script>
+    <script src="https://booking.kai.id/js/apps.js"></script>
+    <script src="https://booking.kai.id/js/jquery-3.3.1.min.js"></script>
+    <script src="https://booking.kai.id/js/bootstrap.min.js"></script>
+    <script src="https://booking.kai.id/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://booking.kai.id/js/jquery.flexdatalist.min.js"></script>
+    <script src="https://booking.kai.id/js/bootstrap-validate.js"></script>
+    <script src="https://booking.kai.id/js/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <script src="https://booking.kai.id/js/slick.min.js"></script>
+    <script src="https://booking.kai.id/js/inputValidate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <!-- Inputmask -->
+    <script src="https://booking.kai.id/js/inputmask/inputmask.js"></script>
+    <script src="https://booking.kai.id/js/inputmask/jquery.inputmask.bundle.js"></script>
+    <script src="https://booking.kai.id/js/inputmask/inputmask.numeric.extensions.js"></script>
+        <script>
+        APP.initDate();
+        APP.modifyIdNum('#member_tandapengenal', '#member_notandapengenal');
+        APP.showPassword();
+
+        //data list for city
+        $('#member_kota').flexdatalist({
+            minLength: 2,
+            valueProperty: 'code',
+            selectionRequired: true,
+            visibleProperties: ["name"],
+            searchIn: ['name'],
+            data: 'https://booking.kai.id/api/city-name'
+        });
+    </script>
+    </body>
+</html>

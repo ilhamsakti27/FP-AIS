@@ -1,0 +1,1 @@
+npm install express cookie-session sequelize mysql2 cors jsonwebtoken bcryptjs --save

@@ -1,0 +1,68 @@
+> Login 
+Parameter
+Username: email atau nomor hp
+password
+
+Response
+Success
+
+> Register
+Parameter
+Jenis Kelamin
+Nama lengkap
+Tipe identitas
+Nomor Identitas
+Tgl lahir
+email
+no. hp
+password
+
+> Reservasi Tiket Awal
+Parameter
+Stasiun asal
+Stasiun tujuan
+Tanggal keberangkatan
+Jumlah penumpang Dewasa
+Jumlah penumpang bayi
+
+Response
+Hari
+Tanggal
+Nama Kereta 
+Jadwal Berangkat
+Durasi Perjalanan
+Jadwal Tiba
+Harga
+
+
+> Passenger Data
+
+Response
+Harga
+Hari
+Tanggal
+Nama Kereta
+Tipe Kereta
+Jumlah Penumpang
+Nama Stasiun Keberangkatan
+Jadwal Keberangkatan
+Tanggal Keberangkatan
+Nama Stasiun Tujuan
+Jadwal Tiba
+Tanggal Tiba
+
+Parameter
+Data Pemesanan:
+- Title (Tuan/ Nyonya)
+- Nama Pemesan
+- Tipe Identitas (NIK/ Paspor)
+- Nomor Identitas
+- No HP pemesan
+- Email
+- Alamat
+
+Data Penumpang 1:
+- Title (Tuan/ Nyonya)
+- Nama Pemesan
+- Tipe Identitas (NIK/ Paspor)
+- Nomor Identitas
