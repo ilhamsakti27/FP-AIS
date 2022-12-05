@@ -2,6 +2,7 @@ const modelUser = require('../models/users')
 const { Sequelize, Model, DataTypes } = require("sequelize");
 const sequelize = new Sequelize("sqlite::memory:");
 const User = modelUser.userModel
+const jwt = require('jsonwebtoken')
 
 exports.signup = function(req,res){
     (async () => {
@@ -58,6 +59,72 @@ exports.signup = function(req,res){
                 status: 404
             })
             res.status(404).json(status)
+            console.log(error)
+        }
+    })();
+}
+
+exports.login = function(req,res){
+    // res.send("login")
+    (async () => {
+        try {
+            var email = req.body.email
+            var password = req.body.password
+            const user = await User.findOne({
+                where:
+                {
+                    email: email
+                }
+            })
+
+            if (user){
+                // const match = await bcrypt.compare(password, user.password)
+                // if(!match) {
+                //     res.status(400).send("Wrong password !")
+                // } else {
+                    // const userEmail = user.email
+                    // const userPhone = user.no_telp
+                    
+                    // const accesToken = jwt.sign({userEmail,userPhone}, process.env.ACCESS_TOKEN_SECRET,{
+                    //     expiresIn: '60s'
+                    // })
+
+                    // const refreshToken = jwt.sign({userEmail,userPhone}, process.env.REFRESH_TOKEN_SECRET,{
+                    //     expiresIn: '1d'
+                    // })
+
+                    // await User.update({ refresh_token: refreshToken },{
+                    //     where: {
+                    //         email: userEmail
+                    //     }
+                    // })
+
+                    // res.cookie('refreshToken',refreshToken,{
+                    //     httpOnly: true,
+                    //     maxAge  : 24 * 60 * 60 * 100
+                    // })
+
+                    // const response = ({
+                    //     accesToken: accesToken,
+                    //     status: 200
+                    // })
+                    const response = ({
+                            msg: "Login Sukses",
+                            status: 200
+                    })
+                    res.status(200).send(response)
+                // }
+            } else {
+                const status = ({
+                    message: "User not found !",
+                    status: 400
+                })
+                res.status(400).json(status)
+            }
+            
+        } catch (error) {
+            res.status(404).send("Something error, please check the field !")
+            if (error) throw error
             console.log(error)
         }
     })();

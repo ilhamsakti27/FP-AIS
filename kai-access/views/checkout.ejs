@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="zsznJ4xwze90qV0uPwHRfMj7eTSDQL7c6HZyLAxY">
+
+    <title>PT Kereta Api Indonesia -      Tipe Pembayaran
+</title>
+    <link rel="icon" type="image/x-icon" href="https://booking.kai.id/img/fav-icon.png" >
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
+    <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://booking.kai.id/css/slick.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/print.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/jquery.flexdatalist.min.css" rel="stylesheet">
+
+    
+    <link href="https://booking.kai.id/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/custom.css" rel="stylesheet">
+ 
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    </head><body>
+    <div id="app">
+        
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="https://booking.kai.id">
+                        <img type="image/x-icon" src="https://booking.kai.id/img/logo-kai-new.png" alt="logo kai" height="30" width="80">
+                    </a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>                        
+                     </button>
+                </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://booking.kai.id">Beranda</a>
+                            </li>
+                            
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                                                    <li class="dropdown">
+                                <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                    BAGUS RIDHO R <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a class="dropdown-item" href="https://booking.kai.id/profile">Profil</a></li>
+                                    <li><a class="dropdown-item" href="https://booking.kai.id/passenger-list">Daftar Penumpang</a></li>
+                                                                            <li><a class="dropdown-item" href="https://booking.kai.id/auth/logout"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            Keluar
+                                        </a></li>
+                                        
+                                        <form id="logout-form" action="https://booking.kai.id/auth/logout" method="POST" style="display: none;">
+                                            <input type="hidden" name="_token" value="zsznJ4xwze90qV0uPwHRfMj7eTSDQL7c6HZyLAxY">                                        </form>
+                                                                    </ul>
+                            </li>
+                                            </ul>
+                    </div>
+            </div>
+        </nav>	<div id="content-wrapper">
+	    <div class="container">
+
+							<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.1.5/css/iziToast.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.1.5/js/iziToast.min.js"></script><script>iziToast.({title: "",message: "",});</script>
+			
+                <br/>
+    <div class="title-page"><h1>Pembayaran</h1></div>
+    <div class="column-content-wrapper">
+        <div class="row">
+            <div class="column-content-left col-md-8 col-sm-8">
+                <div class="row">
+                    <div class="side-menu col-md-3 col-sm-3">
+                        <ul id="cat">
+                                                                                              <li class="active"><a href="#ATM" data-toggle="collapse" class="cat_id" data-id="1">ATM / MOBILE / INTERNET BANKING</a></li>
+                                                                                                                              <li><a href="#E-WALLET" data-toggle="collapse" class="cat_id" data-id="23">E-WALLET</a></li>
+                                                                                                                              <li><a href="#RETAIL" data-toggle="collapse" class="cat_id" data-id="22">GERAI RETAIL</a></li>
+                                                                                                                              <li><a href="#PAYPOINT" data-toggle="collapse" class="cat_id" data-id="21">PAYMENT POINT</a></li>
+                                                                                                                              <li><a href="#QRIS" data-toggle="collapse" class="cat_id" data-id="42">QRIS</a></li>
+                                                                                  </ul>
+                    </div>
+                    <div class="column-box-wrapper col-md-9 col-sm-9">
+                            <div class="row">
+                                <div class="tab-wrapper col-md-12">
+                                    <div class="content-menu">
+                                                                                                                      <div id="ATM" class="collapse in active col-trf">
+                                                                                    <div class="content">
+                                                  <div class="panel-group" id="accordion">
+                                                                                                          <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title" style="margin-bottom:15px;">
+                                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#ATM-0">
+                                                                <img src="https://booking.kai.id/img/logo-bank-bni.png" class="img-responsive padding-top-15" alt="BANK BNI">
+                                                                <span class="row"></span>
+                                                              </a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                    <div id="ATM-0" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <p><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;"><b>Pembayaran Tiket Kereta Api via ATM BNI</b></span></span></p><ol><li>Masuk ke <b>Menu Utama</b></li><li>Pilih Menu <b>Lainnya</b></li><li>Pilih <b>Bayar/Beli </b>(Pembayaran/Pembelian)</li><li>Pilih <b>Tiket</b></li><li>Pilih <b>Kereta Api / KAI</b></li><li>Masukkan <b>Kode Pembayaran</b></li><li>Transaksi berhasil<span style="font-weight: bold;"></span><br><span style="font-weight: bold;"></span></li></ol><p><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;"><span style="font-weight: bold;">Pembayaran Tiket Kereta Api via Internet Banking BNI</span></span></span></p><ol><li><b>Login </b>web Internet Banking BNI: dengan url: <a href="https://ibank.bni.co.id" target="_blank">https://ibank.bni.co.id</a></li><li>Masukkan <b>User ID</b>, <b>Password </b>dan <b>Kode Karakter </b>yang muncul</li><li>Pilih menu <b>Pembelian/Pembayaran</b></li><li>Pilih menu <b>Pembayaran Tagihan</b></li><li>Pilih <b>Tiket Kereta Api</b>, lalu klik <b>OK</b></li><li>Pilih nama provider <b>KAI</b>, masukkan <b>Kode Pembayaran</b></li><li>Cek data pemesanan, jika data pemesanan sudah sesuai</li><li>Masukkan<b> BNI e-secure</b>, klik <b>Bayar</b></li><li>Transaksi berhasil<br></li></ol><p><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;"><span style="font-weight: bold;">Pembayaran Tiket Kereta Api via Mobile Banking BNI</span></span></span></p><ol><li>Masukkan <b>User ID </b>dan <b>MPIN</b></li><li>Pilih menu <b>Pembayaran</b></li><li>Pilih menu <b>Tiket Kereta Api</b></li><li>Masukkan <b>Kode Pembayaran</b>, tekan <b>Lanjut</b></li><li>Masukkan <b>Password</b>, klik <b>Lanjut</b></li><li>Transaksi berhasil</li></ol>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <form method="POST" action="https://booking.kai.id/payment" accept-charset="UTF-8" id="payForm5"><input name="_token" type="hidden" value="zsznJ4xwze90qV0uPwHRfMj7eTSDQL7c6HZyLAxY">
+                                                                        <input name="paycode" type="hidden" value="212521433962382">
+                                                                        <input name="tripid" type="hidden" value="1630604">
+                                                                        <input name="netamount" type="hidden" value="310000">
+                                                                        <input name="unitcodepay" type="hidden" value="MID01BOOK">
+                                                                        <input name="cat_id" type="hidden">
+                                                                        <input name="channelcodepay" type="hidden" value="IBOOK">
+                                                                        <input name="paytypecode" type="hidden" value="ATM">
+                                                                        <input name="paytypeid" type="hidden" value="227">
+                                                                        <div style="margin-top: 25px;text-align: center;">
+                                                                            <input class="btn btn-primary" type="submit" value="Bayar dengan BANK BNI">
+                                                                        </div>
+                                                                        </form>
+                                                                                                                                                                                                                                                                                                                                </div>
+                                                    </div>
+                                                                                                        <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title" style="margin-bottom:15px;">
+                                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#ATM-1">
+                                                                <img src="https://booking.kai.id/img/logo-bank-bri.png" class="img-responsive padding-top-15" alt="BANK BRI">
+                                                                <span class="row"></span>
+                                                              </a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                    <div id="ATM-1" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <p></p><p><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;"><b>Pembayaran Tiket Kereta Api via ATM BRI</b></span></span></p><ol><li>Pilih <b>Bahasa</b>, kemudian masukkan <b>Pin ATM</b></li><li>Pilih menu <b>Bayar/Beli</b></li><li>Pilih menu <b>Lainnya</b></li><li>Pilih menu <b>Tiket</b></li><li>Pilih menu <b>Kereta Api</b></li><li>Masukkan <b>Kode Pembayaran</b></li><li>Cek data pemesanan, jika sesuai tekan <b>Benar</b></li><li>Transaksi berhasil</li></ol><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;"><b>Pembayaran Tiket Kereta Api via Mobile Banking BRI</b></span></span><p></p><ol><li><b>Login </b>Mobile Banking BRI</li><li>Pilih menu <b>Pembayaran</b></li><li>Pilih menu <b>Tiket</b></li><li>Pilih menu <b>Kereta Api</b></li><li>Masukkan <b>Kode Pembayaran</b>, klik <b>OK</b><br></li></ol>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <form method="POST" action="https://booking.kai.id/payment" accept-charset="UTF-8" id="payForm5"><input name="_token" type="hidden" value="zsznJ4xwze90qV0uPwHRfMj7eTSDQL7c6HZyLAxY">
+                                                                        <input name="paycode" type="hidden" value="212521433962382">
+                                                                        <input name="tripid" type="hidden" value="1630604">
+                                                                        <input name="netamount" type="hidden" value="310000">
+                                                                        <input name="unitcodepay" type="hidden" value="MID01BOOK">
+                                                                        <input name="cat_id" type="hidden">
+                                                                        <input name="channelcodepay" type="hidden" value="IBOOK">
+                                                                        <input name="paytypecode" type="hidden" value="ATM">
+                                                                        <input name="paytypeid" type="hidden" value="227">
+                                                                        <div style="margin-top: 25px;text-align: center;">
+                                                                            <input class="btn btn-primary" type="submit" value="Bayar dengan BANK BRI">
+                                                                        </div>
+                                                                        </form>
+                                                                                                                                                                                                                                                                                                                                </div>
+                                                    </div>
+                                                                                                        <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title" style="margin-bottom:15px;">
+                                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#ATM-2">
+                                                                <img src="https://booking.kai.id/img/logo-bank-mandiri.png" class="img-responsive padding-top-15" alt="BANK MANDIRI">
+                                                                <span class="row"></span>
+                                                              </a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                    <div id="ATM-2" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <p><span style="color: rgb(0, 0, 0);"><b><span style="background-color: inherit;">Pembayaran Tiket Kereta Api via ATM Mandiri</span></b></span></p><ol><li>Pilih <b>Bahasa</b>, kemudian masukkan <b>Pin ATM</b></li><li>Pilih menu <b>Bayar/Beli</b></li><li>Pilih menu <b>Lainnya</b></li><li>Pilih menu <b>Tiket</b></li><li>Pilih menu <b>Kereta Api</b></li><li>Masukkan <b>Kode Pembayaran</b></li><li>Cek data pemesanan, jika sesuai tekan <b>Benar</b></li><li>Transaksi berhasil</li></ol><p></p><div><br></div><div><span style="font-weight: bold;"><span style="background-color: inherit;">Pembayaran Tiket Kereta Api via Internet Banking Mandiri</span></span></div><div><br></div><ol><li><span style="font-weight: bold;">Login </span>ke situs Internet Banking Mandiri di alamat <a href="https://ib.bankmandiri.co.id" target="_blank">https://ib.bankmandiri.co.id</a></li><li>Masukkan <span style="font-weight: bold;">User ID </span>dan <span style="font-weight: bold;">Pin </span>Internet Banking Bank Mandiri</li><li>Klik tombol <span style="font-weight: bold;">Kirim</span></li><li>Pada Menu Utama Internet Banking Bank Mandiri, pilih menu <span style="font-weight: bold;">Bayar </span>lalu pilih <span style="font-weight: bold;">Tiket</span>. Pilih <span style="font-weight: bold;">penyedia </span>jasa PT Kereta Api Indonesia (Persero)</li><li>Masukkan <span style="font-weight: bold;">Kode Pembayaran</span>, kemudian klik <span style="font-weight: bold;">Lanjutkan</span></li><li>Cek kembali konfirmasi pemesanan, apabila data sudah sesuai dapat dilanjutkan ke tahap pembayaran berikutnya.</li><li>Masukkan <span style="font-weight: bold;">Pin </span>Mandiri dengan menggunakan token PIN Mandiri dengan cara memasukkan Challenge Code pada Token (perangkat tambahan khusus yang diberikan pihak bank pada nasabah Internet Banking. Pada token akan muncul kode <span style="font-weight: bold;">respon</span>.</li><li>Masukkan <span style="font-weight: bold;">Kode Respon</span> ke dalam field pin Mandiri kemudian klik <span style="font-weight: bold;">Kirim.</span></li><li>Pada layar muncul informasi pembayaran Berhasil. Jika ingin mencetak Bukti Pembayaran klik tombol <span style="font-weight: bold;">Cetak</span>. Jika ingin menyimpannya dalam bentuk soft copy, klik tombol <span style="font-weight: bold;">Simpan</span><br></li></ol><p><span style="color: rgb(0, 0, 0);"><span style="background-color: rgb(255, 255, 255);"><b>Pembayaran Tiket Kereta Api via SMS Banking Mandiri</b></span></span> </p><ol><li>Pilih menu <span style="font-weight: bold;">Pesan </span>pada Ponsel</li><li>Ketik Pesan dengan format : <span style="font-weight: bold;">BYR KAI 1 KODE BAYAR</span>, Kirim ke 3355, contoh format SMS: BYR KAI 1 9999437466802</li><li>Tunggu SMS balasan yang berisi data pemesanan</li><li> Ketik <span style="font-weight: bold;">kombinasi PIN </span>yang diminta dan kirim kembali ke <span style="font-weight: bold;">3355</span></li><li>Transaksi berhasil<br><br></li></ol>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <form method="POST" action="https://booking.kai.id/payment" accept-charset="UTF-8" id="payForm5"><input name="_token" type="hidden" value="zsznJ4xwze90qV0uPwHRfMj7eTSDQL7c6HZyLAxY">
+                                                                        <input name="paycode" type="hidden" value="212521433962382">
+                                                                        <input name="tripid" type="hidden" value="1630604">
+                                                                        <input name="netamount" type="hidden" value="310000">
+                                                                        <input name="unitcodepay" type="hidden" value="MID01BOOK">
+                                                                        <input name="cat_id" type="hidden">
+                                                                        <input name="channelcodepay" type="hidden" value="IBOOK">
+                                                                        <input name="paytypecode" type="hidden" value="ATM">
+                                                                        <input name="paytypeid" type="hidden" value="227">
+                                                                        <div style="margin-top: 25px;text-align: center;">
+                                                                            <input class="btn btn-primary" type="submit" value="Bayar dengan BANK MANDIRI">
+                                                                        </div>
+                                                                        </form>
+                                                                                                                                                                                                                                                                                                                                </div>
+                                                    </div>
+                                                                                                        <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title" style="margin-bottom:15px;">
+                                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#ATM-3">
+                                                                <img src="https://booking.kai.id/img/logo-bank-btn.png" class="img-responsive padding-top-15" alt="BANK BTN">
+                                                                <span class="row"></span>
+                                                              </a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                    <div id="ATM-3" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <p><span style="font-weight: bold;"><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Pembayaran Tiket Kereta Api via ATM BTN</span></span></span></p><ol><li>Pilih Bahasa</li><li>Masukkan PIN ATM</li><li>Pilih menu Lain-Lain, Pembayaran</li><li>Pilih menu Multipayment</li><li>Pilih menu Tiket Kereta Api</li><li>Masukkan Kode Pembayaran</li><li>Pilih Bayar</li><li>Transaksi berhasil</li></ol>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <form method="POST" action="https://booking.kai.id/payment" accept-charset="UTF-8" id="payForm5"><input name="_token" type="hidden" value="zsznJ4xwze90qV0uPwHRfMj7eTSDQL7c6HZyLAxY">
+                                                                        <input name="paycode" type="hidden" value="212521433962382">
+                                                                        <input name="tripid" type="hidden" value="1630604">
+                                                                        <input name="netamount" type="hidden" value="310000">
+                                                                        <input name="unitcodepay" type="hidden" value="MID01BOOK">
+                                                                        <input name="cat_id" type="hidden">
+                                                                        <input name="channelcodepay" type="hidden" value="IBOOK">
+                                                                        <input name="paytypecode" type="hidden" value="ATM">
+                                                                        <input name="paytypeid" type="hidden" value="227">
+                                                                        <div style="margin-top: 25px;text-align: center;">
+                                                                            <input class="btn btn-primary" type="submit" value="Bayar dengan BANK BTN">
+                                                                        </div>
+                                                                        </form>
+                                                                                                                                                                                                                                                                                                                                </div>
+                                                    </div>
+                                                                                                        <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title" style="margin-bottom:15px;">
+                                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#ATM-4">
+                                                                <img src="https://booking.kai.id/img/logo-bank-lainnya.png" class="img-responsive padding-top-15" alt="BANK LAINNYA">
+                                                                <span class="row"></span>
+                                                              </a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                    <div id="ATM-4" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <p><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;"><b>Bank lainnya meliputi :</b></span></span></p><ol><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;"><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank Argo</span></span></span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank Artha Graha</span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank BII<br></span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank BJB<br></span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank BPD DIY</span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank BPRKS</span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank BRI Syariah</span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;"><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank BTPN</span></span></span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank DKI</span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank Jatim</span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank Jateng</span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank Mega<br></span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank NIAGA</span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank OCBC NISP</span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank PANIN<br></span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank Sinarmas</span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank Sumsel Babel<br></span></span></li><li><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">Bank Woori Saudara</span></span></li><li>Bank&nbsp;Syariah Indonesia</li></ol><p><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;"><b>Pembayaran Tiket Kereta Api via ATM Bank Lainnya</b></span></span></p><ol><li>Pilih Bahasa, kemudian masukkan PIN ATM</li><li>Pilih menu Pembayaran</li><li>Pilih menu Tiket Kereta Api</li><li>Masukkan Kode Pembayaran</li><li>Cek data pemesanan, jika sesuai tekan Benar</li><li>Transaksi berhasil</li></ol>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <form method="POST" action="https://booking.kai.id/payment" accept-charset="UTF-8" id="payForm5"><input name="_token" type="hidden" value="zsznJ4xwze90qV0uPwHRfMj7eTSDQL7c6HZyLAxY">
+                                                                        <input name="paycode" type="hidden" value="212521433962382">
+                                                                        <input name="tripid" type="hidden" value="1630604">
+                                                                        <input name="netamount" type="hidden" value="310000">
+                                                                        <input name="unitcodepay" type="hidden" value="MID01BOOK">
+                                                                        <input name="cat_id" type="hidden">
+                                                                        <input name="channelcodepay" type="hidden" value="IBOOK">
+                                                                        <input name="paytypecode" type="hidden" value="ATM">
+                                                                        <input name="paytypeid" type="hidden" value="227">
+                                                                        <div style="margin-top: 25px;text-align: center;">
+                                                                            <input class="btn btn-primary" type="submit" value="Bayar dengan BANK LAINNYA">
+                                                                        </div>
+                                                                        </form>
+                                                                                                                                                                                                                                                                                                                                </div>
+                                                    </div>
+                                                                                                      </div>
+                                              </div>
+                                          </div>
+                                                                                                                      <div id="E-WALLET" class="collapse col-trf">
+                                                                                    <div class="content">
+                                                  <div class="panel-group" id="accordion">
+                                                                                                          <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title" style="margin-bottom:15px;">
+                                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#E-WALLET-0">
+                                                                <img src="https://booking.kai.id/img/logo-linkaja.png" class="img-responsive padding-top-15" alt="LINKAJA">
+                                                                <span class="row"></span>
+                                                              </a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                    <div id="E-WALLET-0" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <span style="background-color: rgb(0, 0, 0);"></span><p><span style="font-weight: bold;"><span style="color: rgb(0, 0, 0);"><span style="background-color: inherit;">PembayaranTiket Kereta Api via Link Aja <br></span></span></span></p><p></p><span style="background-color: rgb(0, 0, 0);"></span><p></p><ol></ol><p style="margin-left: 25px;"><span style="color: rgb(0, 0, 0);">1. Pastikan <span style="font-weight: bold;">Aplikasi Link Aja sudah terpasang</span> pada perangkat Anda<br>2. Pilih menu <span style="font-weight: bold;">Bayar</span><br>3. Pembayaran akan dilanjutkan pada Aplikasi Link Aja<br>4. Apabila nominal pembayaran telah sesuai maka pilih <span style="font-weight: bold;">Konfirmasi</span><br>5. Masukkan <span style="font-weight: bold;">Kode PIN</span> (<span style="font-style: italic;">Personal Identification Number</span>) anda<br>6. Transaksi berhasil<br>7. Pilih <span style="font-weight: bold;">Selesai </span>untuk kembali ke halaman tiket aplikasi kai access.</span><br></p><p></p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <form method="POST" action="https://booking.kai.id/payment" accept-charset="UTF-8" id="payForm1"><input name="_token" type="hidden" value="zsznJ4xwze90qV0uPwHRfMj7eTSDQL7c6HZyLAxY">
+                                                                        <input name="paycode" type="hidden" value="212521433962382">
+                                                                        <input name="tripid" type="hidden" value="1630604">
+                                                                        <input name="netamount" type="hidden" value="310000">
+                                                                        <input name="unitcodepay" type="hidden" value="MID01BOOK">
+                                                                        <input name="cat_id" type="hidden">
+                                                                        <input name="channelcodepay" type="hidden" value="IBOOK">
+                                                                        <input name="paytypecode" type="hidden" value="TCASH">
+                                                                        <input name="paytypeid" type="hidden" value="203">
+                                                                        <div style="margin-top: 25px;text-align: center;">
+                                                                            <input class="btn btn-primary" type="submit" value="Bayar dengan LINKAJA">
+                                                                        </div>
+                                                                        </form>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                    </div>
+                                                                                                      </div>
+                                              </div>
+                                          </div>
+                                                                                                                      <div id="RETAIL" class="collapse col-trf">
+                                                                                    <div class="content">
+                                                  <div class="panel-group" id="accordion">
+                                                                                                          <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title" style="margin-bottom:15px;">
+                                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#RETAIL-0">
+                                                                <img src="https://booking.kai.id/img/logo-indomaret.png" class="img-responsive padding-top-15" alt="INDOMARET">
+                                                                <span class="row"></span>
+                                                              </a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                    <div id="RETAIL-0" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <b>Pembayaran Tiket KAI Via Indomaret</b><br>Berikan kode pembayaran kepada kasir minimarket dan bayar sesuai tagihan.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <form method="POST" action="https://booking.kai.id/payment" accept-charset="UTF-8" id="payForm4"><input name="_token" type="hidden" value="zsznJ4xwze90qV0uPwHRfMj7eTSDQL7c6HZyLAxY">
+                                                                        <input name="paycode" type="hidden" value="212521433962382">
+                                                                        <input name="tripid" type="hidden" value="1630604">
+                                                                        <input name="netamount" type="hidden" value="310000">
+                                                                        <input name="unitcodepay" type="hidden" value="MID01BOOK">
+                                                                        <input name="cat_id" type="hidden">
+                                                                        <input name="channelcodepay" type="hidden" value="IBOOK">
+                                                                        <input name="paytypecode" type="hidden" value="PAYMENTPOINT">
+                                                                        <input name="paytypeid" type="hidden" value="261">
+                                                                        <div style="margin-top: 25px;text-align: center;">
+                                                                            <input class="btn btn-primary" type="submit" value="Bayar dengan INDOMARET">
+                                                                        </div>
+                                                                        </form>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                    </div>
+                                                                                                      </div>
+                                              </div>
+                                          </div>
+                                                                                                                      <div id="PAYPOINT" class="collapse col-trf">
+                                                                                    <div class="content">
+                                                  <div class="panel-group" id="accordion">
+                                                                                                          <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title" style="margin-bottom:15px;">
+                                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#PAYPOINT-0">
+                                                                <img src="https://booking.kai.id/img/logo-kantor-pos.png" class="img-responsive padding-top-15" alt="KANTOR POS">
+                                                                <span class="row"></span>
+                                                              </a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                    <div id="PAYPOINT-0" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <b>Pembayaran Tiket KAI Via PT Pos Indonesia</b><br>Berikan kode pembayaran kepada kasir Loket Pembayaran Online PT Pos Indonesia dan bayar sesuai tagihan.¿¿
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <form method="POST" action="https://booking.kai.id/payment" accept-charset="UTF-8" id="payForm5"><input name="_token" type="hidden" value="zsznJ4xwze90qV0uPwHRfMj7eTSDQL7c6HZyLAxY">
+                                                                        <input name="paycode" type="hidden" value="212521433962382">
+                                                                        <input name="tripid" type="hidden" value="1630604">
+                                                                        <input name="netamount" type="hidden" value="310000">
+                                                                        <input name="unitcodepay" type="hidden" value="MID01BOOK">
+                                                                        <input name="cat_id" type="hidden">
+                                                                        <input name="channelcodepay" type="hidden" value="IBOOK">
+                                                                        <input name="paytypecode" type="hidden" value="ATM">
+                                                                        <input name="paytypeid" type="hidden" value="227">
+                                                                        <div style="margin-top: 25px;text-align: center;">
+                                                                            <input class="btn btn-primary" type="submit" value="Bayar dengan KANTOR POS">
+                                                                        </div>
+                                                                        </form>
+                                                                                                                                                                                                                                                                                                                                </div>
+                                                    </div>
+                                                                                                        <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title" style="margin-bottom:15px;">
+                                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#PAYPOINT-1">
+                                                                <img src="https://booking.kai.id/img/logo-fastpay.png" class="img-responsive padding-top-15" alt="FASTPAY">
+                                                                <span class="row"></span>
+                                                              </a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                    <div id="PAYPOINT-1" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <b>Pembayaran Tiket KAI Via Fastpay</b><br>Berikan kode pembayaran kepada kasir Loket Pembayaran Online Fastpay dan bayar sesuai tagihan.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <form method="POST" action="https://booking.kai.id/payment" accept-charset="UTF-8" id="payForm4"><input name="_token" type="hidden" value="zsznJ4xwze90qV0uPwHRfMj7eTSDQL7c6HZyLAxY">
+                                                                        <input name="paycode" type="hidden" value="212521433962382">
+                                                                        <input name="tripid" type="hidden" value="1630604">
+                                                                        <input name="netamount" type="hidden" value="310000">
+                                                                        <input name="unitcodepay" type="hidden" value="MID01BOOK">
+                                                                        <input name="cat_id" type="hidden">
+                                                                        <input name="channelcodepay" type="hidden" value="IBOOK">
+                                                                        <input name="paytypecode" type="hidden" value="PAYMENTPOINT">
+                                                                        <input name="paytypeid" type="hidden" value="261">
+                                                                        <div style="margin-top: 25px;text-align: center;">
+                                                                            <input class="btn btn-primary" type="submit" value="Bayar dengan FASTPAY">
+                                                                        </div>
+                                                                        </form>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                    </div>
+                                                                                                      </div>
+                                              </div>
+                                          </div>
+                                                                                                                      <div id="QRIS" class="collapse col-trf">
+                                                                                    <div class="content">
+                                                  <div class="panel-group" id="accordion">
+                                                                                                          <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title" style="margin-bottom:15px;">
+                                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#QRIS-0">
+                                                                <img src="https://booking.kai.id/img/logo-qrislinkaja.png" class="img-responsive padding-top-15" alt="QRISLINKAJA">
+                                                                <span class="row"></span>
+                                                              </a>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                    <div id="QRIS-0" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <ol style="color: rgb(119, 119, 119); font-family: " open="" sans",="" arial,="" sans-serif;"=""><li>Pilih tombol <b>Bayar dengan QRISLINKAJA</b></li><li>Kemudian akan terlihat QR Code di layar</li><li>Buka Aplikasi Dompet Elektronik yang dimiliki dan mendukung fasilitas QRIS</li><li>Pindai/ Scan QR code dari QRIS tersebut</li><li>Periksa kembali detail pembayaran anda</li><li>Jika sudah sesuai konfirmasi dan bayar</li><li>Transaksi Berhasil</li><li>Periksa email anda untuk melihat bukti pemesanan tiket kereta</li></ol>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <form method="POST" action="https://booking.kai.id/payment" accept-charset="UTF-8" id="payForm3"><input name="_token" type="hidden" value="zsznJ4xwze90qV0uPwHRfMj7eTSDQL7c6HZyLAxY">
+                                                                        <input name="paycode" type="hidden" value="212521433962382">
+                                                                        <input name="tripid" type="hidden" value="1630604">
+                                                                        <input name="netamount" type="hidden" value="310000">
+                                                                        <input name="unitcodepay" type="hidden" value="MID01BOOK">
+                                                                        <input name="cat_id" type="hidden">
+                                                                        <input name="channelcodepay" type="hidden" value="IBOOK">
+                                                                        <input name="paytypecode" type="hidden" value="LINKAJAQRIS">
+                                                                        <input name="paytypeid" type="hidden" value="381">
+                                                                        <div style="margin-top: 25px;text-align: center;">
+                                                                            <input class="btn btn-primary" type="submit" value="Bayar dengan QRISLINKAJA">
+                                                                        </div>
+                                                                        </form>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                    </div>
+                                                                                                      </div>
+                                              </div>
+                                          </div>
+                                                                          </div><!-- //content-menu -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- //row -->
+
+                <!-- Passenger Info -->
+                <div class="column-content-right col-md-4 col-sm-4">
+                    <div class="side-column-final-wrapper">
+                        <div class="side-column-final">
+                            <div class="top-column">
+                                    Total Rp  310.000,-
+                            </div>
+                            
+                            <div class="body-column">
+                                <div class="date">Selasa, 20 Desember 2022</div>
+                                <div class="train">RANGGAJATI (111)</div>
+                                <div class="class">Eksekutif - A</div>
+                                <div class="passenger">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                                &nbsp;
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                                            Tarif
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-4 text-center">
+                                            Subtotal
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            1 Dewasa
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-4 text-right">
+                                            Rp 310.000,-
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-4 text-right">
+                                             310.000,-
+                                        </div>
+                                    </div>
+                                                                        <div class="row">
+                                        <div class="col-md-6 col-sm-4 col-xs-4">
+                                            Discount Channel
+                                        </div>
+                                        <div class="col-md-6 col-sm-4 col-xs-4 text-right">
+                                             0,-
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            Harga Total
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-4 text-right">
+                                            Rp  310.000,-
+                                        </div>
+                                    </div>
+    
+                            </div><!-- //passenger -->
+    
+                            <div class="destionation-wrapper">
+                                    <div class="row">
+                                        <div class="left col-md-8 col-xs-8">
+                                            <ol>
+                                                                                                    <li>BAGUS RIDHO R</li>
+                                                                                            </ol>
+                                        </div>
+                                        <div class="right col-md-4 col-xs-4">
+                                            <ul>
+                                                                                                                                                            <li>EKS-1,1C</li>
+                                                                                                                                                </ul>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            <div class="destionation-wrapper">
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-4 col-xs-4">
+                                        <div class="city">Jember</div>
+                                        <div class="time text-muted">05:10</div>
+                                        <div class="time text-muted">20 Des 2022</div>
+                                        </div>
+                                        <div class="col-md-2 col-sm-4 col-xs-4">
+                                            <div class="arrow"><i class="fas fa-angle-double-right"></i></div>
+                                        </div>
+                                        <div class="col-md-5 col-sm-4 col-xs-4">
+                                            <div class="city">Surabaya Gubeng</div>
+                                            <div class="time text-muted">08:52</div>
+                                            <div class="time text-muted">20 Des 2022</div>
+                                        </div>
+                                    </div>
+                                </div><!--//destination-wrapper -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Passenger Info -->
+
+            </div>
+        </div>
+    </div>
+        </div> <!-- end of container -->
+	</div> <!-- end of content-wrapper -->
+</div>
+    <!-- Scripts -->
+    <script>
+        BASE_URL = "https://booking.kai.id"+"/";
+    </script>
+    <script src="https://booking.kai.id/js/apps.js"></script>
+    <script src="https://booking.kai.id/js/jquery-3.3.1.min.js"></script>
+    <script src="https://booking.kai.id/js/bootstrap.min.js"></script>
+    <script src="https://booking.kai.id/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://booking.kai.id/js/jquery.flexdatalist.min.js"></script>
+    <script src="https://booking.kai.id/js/bootstrap-validate.js"></script>
+    <script src="https://booking.kai.id/js/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <script src="https://booking.kai.id/js/slick.min.js"></script>
+    <script src="https://booking.kai.id/js/inputValidate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+    <!-- Inputmask -->
+    <script src="https://booking.kai.id/js/inputmask/inputmask.js"></script>
+    <script src="https://booking.kai.id/js/inputmask/jquery.inputmask.bundle.js"></script>
+    <script src="https://booking.kai.id/js/inputmask/inputmask.numeric.extensions.js"></script>
+        <script type="text/javascript">
+        //left side tab
+        $(".side-menu a").click(function() {
+            $(this).tab("show")
+        });
+
+        APP.setCategoryId();
+    </script>
+    </body>
+</html>

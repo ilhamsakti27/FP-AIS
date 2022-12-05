@@ -27,6 +27,8 @@ app.get('/login', page.login);
 app.get('/passenger', page.passenger);
 
 app.post('/register',userController.signup)
+app.post('/login',userController.login)
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
