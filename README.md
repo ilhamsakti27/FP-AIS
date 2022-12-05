@@ -17,7 +17,7 @@ Ilham Muhammad Sakti | 5027201042
 Nama | NRP
 --- | ---
 Bagus Ridho Rosfandy | 5027201043
-Muhammad Rifqi Fernanda | 50272010502
+Muhammad Rifqi Fernanda | 5027201050
 Satrio Kamil Widhiwoso | 5027201051
 
 <br>
