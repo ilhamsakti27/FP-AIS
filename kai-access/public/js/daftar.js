@@ -17,7 +17,16 @@ form.addEventListener("submit",async(e)=>{
                 "Content-Type": "application/json",
             }
         })
-        console.log(response)
+        const json = await response.json()
+        console.log(json)
+        if (json.status == 200) {
+            swal("Register Successfully !", `Status ${json.status}`, "success")
+            .then(function(){
+                window.location.href=`http://localhost:3000`
+            })
+        } else {
+            swal(json.message,`Status ${json.status}`,"warning")
+        }        
     } catch (error) {
         console.log(error)
     }
