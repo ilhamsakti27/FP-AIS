@@ -7,17 +7,18 @@ form.addEventListener("submit",async(e)=>{
     const formDataObj = {};
     myFormData.forEach((value, key) => (formDataObj[key] = value));
     console.log(formDataObj);
+    const data = JSON.stringify(formDataObj)
 
     try {
         const response = await fetch(url, {
             method: "POST",
-            body: formDataObj,
+            body: data,
             headers: {
                 "Content-Type": "application/json",
             }
         })
+        console.log(response)
     } catch (error) {
         console.log(error)
     }
-
 })

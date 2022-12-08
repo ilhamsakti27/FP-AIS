@@ -13,17 +13,18 @@ exports.signup = function(req,res){
             var email     = post.member_email;
             var username  = post.member_nama;
             var user_telp  = post.member_nohp;
-            var user_id   = post.member_notandapengenal;
+            var id   = post.member_notandapengenal;
             var password  = post.member_pass1;
             var tipe_id   = post.member_tandapengenal;
             var tgl_lahir  = post.member_tanggallahir;
             var jenis_kelamin  = post.member_title;
 
+            console.log(id)
             // const salt    = await bcrypt.genSalt()
             const hashPassword = await bcrypt.hashSync(password, 8)
             
-            const user = await User.findOne({where:{user_id:user_id}})
-            if(user) return res.status(400).json({message:`[User_id]: ${user_id} already exist !`}) 
+            const user = await User.findOne({where:{user_id:id}})
+            if(user) return res.status(400).json({message:`[User_id]: ${id} already exist !`}) 
             const isEmailExist = await User.findOne({where:{email:email}})
             if(isEmailExist) return res.status(400).json({message:`[Email]: ${email} already exist !`}) 
 
@@ -31,7 +32,7 @@ exports.signup = function(req,res){
                 username: username,
                 email: email,
                 password: hashPassword,
-                user_id: user_id,
+                user_id: id,
                 tipe_id: tipe_id,
                 jenis_kelamin: jenis_kelamin,
                 tgl_lahir: tgl_lahir,
@@ -46,6 +47,7 @@ exports.signup = function(req,res){
             res.json(status)
             
         } catch (error) {
+            console.log(error)
             let status = ({
                 message: error,
                 status: 404
