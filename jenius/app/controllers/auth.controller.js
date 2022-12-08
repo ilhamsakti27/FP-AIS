@@ -64,7 +64,7 @@ exports.signin = async (req, res) => {
       });
     }
 
-    const token = jwt.sign({ id: user.id }, config.secret, {
+    const token = jwt.sign({ id: user.id, phone: user.no_hp }, config.secret, {
       expiresIn: 86400, // 24 hours
     });
 
@@ -77,15 +77,53 @@ exports.signin = async (req, res) => {
     req.session.token = token;
 
     return res.status(200).send({
+      msg:"Logged in",
       id: user.id,
       username: user.username,
       email: user.email,
       saldo: user.saldo,
-      roles: authorities
+      roles: authorities,
+      status:200,
+      token: req.session.token
     });
+    
   } catch (error) {
     return res.status(500).send({ message: error.message });
   }
+};
+
+exports.topup = async (req, res) => {
+
+  try {
+        const user = await User.findOne({
+          where: {
+            no_hp: req.body.no_hp,
+          },
+        });
+    
+    if(!user) return res.status(404).json({message: "Invalid phone number !",status:404})
+    if(user.pin != req.body.pin) return res.status(404).json({message: "Invalid pin !",status:404})
+
+    let amount = req.body.amount
+    let saldoAwal = user.saldo
+    let saldoTopup = +user.saldo + +amount
+
+    await User.update({saldo:saldoTopup},{
+      where:{no_hp: req.body.no_hp}
+    })
+
+    let response = {
+      status:200,
+      msg: "Topup",
+      saldo : saldoAwal,
+      topup : saldoTopup
+    }
+    
+    res.json(response)
+  } catch (error) {
+    return res.status(500).json({ message: error.message,status:500 });
+  }
+
 };
 
 exports.signout = async (req, res) => {

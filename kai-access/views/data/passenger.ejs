@@ -1,104 +1,37 @@
 <!DOCTYPE html>
-<!-- saved from url=(0036)https://booking.kai.id/passengerdata -->
-<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="id">
+<head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+    <meta name="csrf-token" content="wdmxSVG4SEgEVybsjOl9BKQtp8O1pwihLCfOSdg7">
 
     <title>PT Kereta Api Indonesia -  Passenger Data
 </title>
-<link rel="icon" type="image/x-icon" href="https://booking.kai.id/img/fav-icon.png" >
+    <link rel="icon" type="image/x-icon" href="https://booking.kai.id/img/fav-icon.png" >
 
-<!-- Fonts -->
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
-<!-- Styles -->
-<link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-<link href="https://booking.kai.id/css/slick.css" rel="stylesheet">
-<link href="https://booking.kai.id/css/print.css" rel="stylesheet">
-<link href="https://booking.kai.id/css/jquery.flexdatalist.min.css" rel="stylesheet">
+    <!-- Styles -->
+    <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://booking.kai.id/css/slick.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/print.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/jquery.flexdatalist.min.css" rel="stylesheet">
 
+    
+    <link href="https://booking.kai.id/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="https://booking.kai.id/css/custom.css" rel="stylesheet">
+ 
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
-<link href="https://booking.kai.id/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://booking.kai.id/css/bootstrap-datepicker.min.css" rel="stylesheet">
-<link href="https://booking.kai.id/css/custom.css" rel="stylesheet">
-
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
-    <style type="text/css">span.im-caret {
-    -webkit-animation: 1s blink step-end infinite;
-    animation: 1s blink step-end infinite;
-}
-
-@keyframes blink {
-    from, to {
-        border-right-color: black;
-    }
-    50% {
-        border-right-color: transparent;
-    }
-}
-
-@-webkit-keyframes blink {
-    from, to {
-        border-right-color: black;
-    }
-    50% {
-        border-right-color: transparent;
-    }
-}
-
-span.im-static {
-    color: grey;
-}
-
-div.im-colormask {
-    display: inline-block;
-    border-style: inset;
-    border-width: 2px;
-    -webkit-appearance: textfield;
-    -moz-appearance: textfield;
-    appearance: textfield;
-}
-
-div.im-colormask > input {
-    position: absolute;
-    display: inline-block;
-    background-color: transparent;
-    color: transparent;
-    -webkit-appearance: caret;
-    -moz-appearance: caret;
-    appearance: caret;
-    border-style: none;
-    left: 0; /*calculated*/
-}
-
-div.im-colormask > input:focus {
-    outline: none;
-}
-
-div.im-colormask > input::-moz-selection{
-    background: none;
-}
-
-div.im-colormask > input::selection{
-    background: none;
-}
-div.im-colormask > input::-moz-selection{
-    background: none;
-}
-
-div.im-colormask > div {
-    color: black;
-    display: inline-block;
-    width: 100px; /*calculated*/
-}</style></head><body class="" style="">
+    </head><body>
     <div id="app">
         
 
@@ -123,11 +56,19 @@ div.im-colormask > div {
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                                                    <li class="nav-item">
-                                <a class="nav-link" href="/login">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/register">Register</a>
+                                                    <li class="dropdown">
+                                                        <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"><span class="username">BAGUS RIDHO R </span><span class="caret"></span>
+                                                        </a>
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a class="dropdown-item"
+                                        onclick="keluar()">
+                                            Keluar
+                                        </a></li>
+                                        
+                                        <form id="logout-form" style="display: none;">
+                                                                                   </form>
+                                                                    </ul>
                             </li>
                                             </ul>
                     </div>
@@ -135,7 +76,7 @@ div.im-colormask > div {
         </nav>	<div id="content-wrapper">
 	    <div class="container">
 
-							<link rel="stylesheet" type="text/css" href="./PT Kereta Api Indonesia - Passenger Data_files/iziToast.min.css"><script type="text/javascript" async="" src="./PT Kereta Api Indonesia - Passenger Data_files/recaptcha__en_gb.js.download" crossorigin="anonymous" integrity="sha384-OTf8CwpA/E5YjZDlHKXBCWVf0rujEMK64+C6Eg/R9mID5g5yCqKT5bc2C+PFfNb9"></script><script src="./PT Kereta Api Indonesia - Passenger Data_files/iziToast.min.js.download"></script><script>iziToast.({title: "",message: "",});</script>
+							<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.1.5/css/iziToast.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.1.5/js/iziToast.min.js"></script><script>iziToast.({title: "",message: "",});</script>
 			
             <style>
 	.modal-confirm .modal-content {
@@ -216,10 +157,10 @@ div.im-colormask > div {
         font-size:50px;
     }
 </style>
-    <br>
+    <br/>
     <div class="title-page"><h1>Pemesanan</h1></div>
     <div class="column-content-wrapper">
-        <form method="POST" action="https://booking.kai.id/passengercontrol" accept-charset="UTF-8" id="pesanan" role="form" data-toggle="validator" novalidate="true"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+        <form method="POST" action="https://booking.kai.id/passengercontrol" accept-charset="UTF-8" id="pesanan" role="form" data-toggle="validator"><input name="_token" type="hidden" value="wdmxSVG4SEgEVybsjOl9BKQtp8O1pwihLCfOSdg7">
         <div class="row">
             <div class="column-content-left col-md-8 col-sm-12">
                 <div class="column-box-wrapper">
@@ -228,95 +169,91 @@ div.im-colormask > div {
                         <div class="column-form-box">
 
                             
-                                                        
-                                <div class="row">
-                                    <div class="col-md-4"> 
-                                        <div class="form-group">
-                                            <label for="pemesan_title">Title</label>
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                                <select class="form-control" id="pemesan_title" name="pemesan_title"><option value="MR">Tuan</option><option value="MRS.">Nyonya</option></select>
+                                                            <div class="row">
+                                    <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="pemesan_title">Title</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                                    <select class="form-control" id="pemesan_title" name="pemesan_title"><option value="MR">Tuan</option><option value="MRS.">Nyonya</option></select>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="pemesan_tandapengenal">Tipe Identitas</label>
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-id-card fa" aria-hidden="true"></i></span>
-                                                <select name="pemesan_tandapengenal" class="form-control" id="pemesan_tandapengenal" required="" value="">
-                                                    <option value="ktp">NIK</option>
-                                                    <option value="paspor">Paspor</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                        <label for="pemesan_nohp">No. HP Pemesan</label>
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-                                                <input class="form-control number" placeholder="08xxxxx" id="pemesan_nohp" data-error="Mohon isi No HP" required="" data-minlength="1" maxlength="14" name="pemesan_nohp" type="text">
-                                            </div>
-                                            <div class="help-block with-errors text-danger"></div>
-                                        </div>
+                                            <p style="color:black"></p>
+                                            <div class="form-group">
 
-                                        <div class="form-group">
-                                            <label for="pemesan_alamat">Alamat</label>
-                                            <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-map-marker fa" aria-hidden="true"></i></span>
-                                                <input class="form-control" placeholder="Nama Daerah" id="pemesan_alamat" data-error="Mohon diisi Alamat" required="" name="pemesan_alamat" type="text">
+                                                <label for="pemesan_tandapengenal">Tipe Identitas</label>
+                                                 
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-id-card fa" aria-hidden="true"></i></span>
+                                                    <select name="pemesan_tandapengenal" class="form-control" id="pemesan_tandapengenal" required value="">
+                                                        <option value="ktp" >NIK</option>
+                                                        <option value="paspor" >Passpor</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
+                                            <div class="form-group">
+                                                <label for="pemesan_nohp">No. HP Pemesan</label>
+                                                <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+                                                <input class="form-control" placeholder="08xxxxxx" id="pemesan_nohp" data-minlength="8" maxlength="16" name="pemesan_nohp" type="text" value="081232681465">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pemesan_alamat">Alamat</label>
+                                                <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-map-marker fa" aria-hidden="true"></i></span>
+                                                    <input class="form-control" placeholder="Nama Daerah" id="pemesan_alamat" required="required" data-minlength="5" name="pemesan_alamat" type="text" value="-">
+                                                </div>
+                                            </div>
                                     </div>
                                     <div class="col-md-8">
-
-                                        <div class="form-group ">
-                                            <label for="pemesan_nama">Nama Pemesan</label>
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                                <input class="form-control genInfo letter" placeholder="Nama sesuai NIK / Paspor" id="pemesan_nama" data-error="Mohon isi Nama" required="" name="pemesan_nama" type="text">
+                                            <div class="form-group">
+                                                <label for="pemesan_nama">Nama Pemesan</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                                    <input class="form-control letter" placeholder="Nama sesuai NIK/Paspor" id="pemesan_nama" required="required" name="pemesan_nama" type="text" value="BAGUS RIDHO R">
+                                                </div>
                                             </div>
-                                            <div class="help-block with-errors text-danger"></div>
-                                        </div>
-
-                                        <div class="form-group ">
-                                            <label for="pemesan_notandapengenal">Nomor Identitas</label>
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-id-card fa" aria-hidden="true"></i></span>
-                                                <input class="form-control genInfo" placeholder="No Identitas sesuai NIK / Paspor" id="pemesan_notandapengenal" data-error="Mohon isi Nomor Identitas" minlength="1" maxlength="16" required="" name="pemesan_notandapengenal" type="text">
+                                            <div class="form-group">
+                                                <label for="pemesan_notandapengenal">Nomor Identitas</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-id-card fa" aria-hidden="true"></i></span>
+                                                     
+                                                        <input class="form-control genInfo" placeholder="Nomor Identitas" data-minlength="1" maxlength="16" id="pemesan_notandapengenal" required="required" name="pemesan_notandapengenal" type="text" value="3509190310010008">
+                                                                                                    </div>
+                                                <span class="tooltiptext">
+                                                    Untuk penumpang usia mulai 3 s.d 17 tahun tipe identitas 'Lainnya', kolom nomor identitas di isi nomor kartu identitas
+                                                    anak/kartu pelajar atau kartu anak lainnya sedangkan untuk yang belum memiliki bukti identitas dapat di isi nomor identitas
+                                                    orangtua_tanggal bulan tahun lahir anak (ddmmyyyy) sebagai identitas anak,contoh:332909xxxxxxxxxx_13072013
+                                                </span>
+                                                
+                                                <div class="help-block with-errors text-danger"></div>
                                             </div>
-                                            <span class="tooltiptext">
-                                                Untuk penumpang usia mulai 3 s.d 17 tahun tipe identitas 'Lainnya', kolom nomor identitas di isi nomor kartu identitas
-                                                anak/kartu pelajar atau kartu anak lainnya sedangkan untuk yang belum memiliki bukti identitas dapat di isi nomor identitas
-                                                orangtua_tanggal bulan tahun lahir anak (ddmmyyyy) sebagai identitas anak,contoh:332909xxxxxxxxxx_13072013
-                                            </span>
-                                            <div class="help-block with-errors text-danger"></div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="pemesan_email">Email</label>
-                                            <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                                <input class="form-control" placeholder="me@contoh.co.id" id="pemesan_email" data-error="Mohon diisi Email" required="" name="pemesan_email" type="email">
+                                            <div class="form-group">
+                                                <label for="pemesan_email">Email</label>
+                                                <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                                    <input class="form-control" placeholder="me@contoh.co.id" id="pemesan_email" required="required" name="pemesan_email" type="email" value="bagusrosfandy@gmail.com">
+                                                </div>
                                             </div>
-                                            <div class="help-block with-errors"></div>
-                                        </div>
-                                        <!-- <div class="form-group">
-                                            <label for="pemesan_kota">Kota</label>
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-map-marker fa" aria-hidden="true"></i></span>
-                                                <input type="text" name="origination" value="SURABAYA GUBENG" id="passenger-city" class="form-control letter" placeholder="Kota/Provinsi"
-                                                    data-data="https://booking.kai.id/api/city-name"
-                                                    data-search-in='["name"]'
-                                                    data-min-length="1"
-                                                    data-value-property="name"
-                                                    data-text-property="name"
-                                                    data-visible-properties='["name"]'
-                                                    data-selection-require="true">
-                                            </div>
-                                            <div class="help-block with-errors"></div>
-                                        </div> -->
+                                            <!-- <div class="form-group">
+                                                <label for="pemesan_kota">Kota</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-map-marker fa" aria-hidden="true"></i></span>
+                                                    <input type="text" name="origination" value="SURABAYA GUBENG" id="passenger-city" class="form-control letter" placeholder="Kota/Provinsi"
+                                                        data-data="https://booking.kai.id/api/city-name"
+                                                        data-search-in='["name"]'
+                                                        data-min-length="1"
+                                                        data-value-property="name"
+                                                        data-text-property="name"
+                                                        data-visible-properties='["name"]'
+                                                        data-selection-require="true">
+                                                </div>
+                                            </div> -->
                                     </div>
                                 </div>
-                            
+                                
+
                                                     </div>
                     </div>
                 </div>
@@ -337,16 +274,16 @@ div.im-colormask > div {
                                             <label for="">Title</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                                <select class="form-control" id="penumpang_title1" required="" name="penumpang_title[]"><option value="MR">Tuan</option><option value="MRS.">Nyonya</option></select>
+                                                <select class="form-control" id="penumpang_title1" required name="penumpang_title[]"><option value="MR">Tuan</option><option value="MRS.">Nyonya</option></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="">Tipe Identitas</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-id-card fa" aria-hidden="true"></i></span>
-                                                <select name="penumpang_tandapengenal[]" class="form-control" id="penumpang_tandapengenal1" required="" value="">
-                                                    <option value="ktp">NIK</option>
-                                                    <option value="paspor">Paspor</option>
+                                                <select name="penumpang_tandapengenal[]" class="form-control" id="penumpang_tandapengenal1" required value="">
+                                                    <option value="ktp" >NIK</option>
+                                                    <option value="paspor" >Paspor</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -354,7 +291,7 @@ div.im-colormask > div {
                                             <label for="penumpang_nohp[]">No. HP Penumpang</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-                                                <input class="form-control number" placeholder="08xxxxxx" id="penumpang_nohp1" required="" name="penumpang_nohp[]" type="hidden" value="000">
+                                                <input class="form-control number" placeholder="08xxxxxx" id="penumpang_nohp1" required name="penumpang_nohp[]" type="hidden" value="000">
                                                 <input name="penumpang_type[]" type="hidden" value="A">
                                             </div>
                                             <div class="help-block with-errors"></div>
@@ -366,7 +303,7 @@ div.im-colormask > div {
                                             <label for="penumpang_nama[]">Nama</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                                <input class="form-control letter" placeholder="Nama sesuai NIK / Paspor" id="penumpang_nama1" required="" name="penumpang_nama[]" type="text">
+                                                <input class="form-control letter" placeholder="Nama sesuai NIK / Paspor" id="penumpang_nama1" required name="penumpang_nama[]" type="text">
                                             </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -374,7 +311,7 @@ div.im-colormask > div {
                                             <label for="penumpang_notandapengenal[]">Nomor Identitas</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-id-card fa" aria-hidden="true"></i></span>
-                                                <input class="form-control uniqueval genInfo" placeholder="Nomor Identitas sesuai NIK / Paspor" maxlength="16" id="penumpang_notandapengenal1" data-error="Nomor Identitas Wajib Diisi" required="" name="penumpang_notandapengenal[]" type="text">
+                                                <input class="form-control uniqueval genInfo" placeholder="Nomor Identitas sesuai NIK / Paspor" maxlength="16" id="penumpang_notandapengenal1" data-error="Nomor Identitas Wajib Diisi" required name="penumpang_notandapengenal[]" type="text">
                                             </div>
                                             <span class="tooltiptext">
                                                 Untuk penumpang usia mulai 3 s.d 17 tahun tipe identitas 'Lainnya', kolom nomor identitas di isi nomor kartu identitas
@@ -398,11 +335,12 @@ div.im-colormask > div {
                     <div class="side-column-final">
                                 <div class="top-column">
                                         Total
-                                        Rp 1.000.000,-
+                                        Rp 220.000,-
                                 </div>
                                 <div class="body-column">
-                                    <div class="train">Bima Priority (75P)</div>
-                                    <div class="class">Eksekutif - A</div>
+                                    <div class="date depature_date"></div>
+                                    <div class="train">Wijayakusuma (116)</div>
+                                    <div class="class">Ekonomi - CA</div>
                                     <div class="passenger">
                                         1 Dewasa
                                         
@@ -412,16 +350,16 @@ div.im-colormask > div {
                                         <div class="row">
                                             <div class="col-md-5 col-sm-4 col-xs-4">
                                                 <div class="city">SURABAYA GUBENG</div>
-                                                <div class="time text-muted">17:30</div>
-                                                <div class="time text-muted">29 Nov 2022</div>
+                                                <div class="time text-muted">23:35</div>
+                                                <div class="time text-muted">7 Des 2022</div>
                                             </div>
                                             <div class="col-md-2 col-sm-4 col-xs-4">
                                                 <div class="arrow"><i class="fas fa-angle-double-right"></i></div>
                                             </div>
                                             <div class="col-md-5 col-sm-4 col-xs-4">
-                                                <div class="city">GAMBIR</div>
-                                                <div class="time text-muted">04:40</div>
-                                                <div class="time text-muted">30 Nov 2022</div>
+                                                <div class="city">JEMBER</div>
+                                                <div class="time text-muted">03:10</div>
+                                                <div class="time text-muted">8 Des 2022</div>
                                             </div>
                                         </div>
                                     </div>
@@ -444,27 +382,26 @@ div.im-colormask > div {
                     </div>
                 </div>
                 <div class="checkbox-wrapper">
-                    <label for=""><input type="checkbox" name="agree" id="setuju" required=""> Dengan ini saya setuju dan mematuhi <a href="https://kai.id/corporate/passenger_services/1" target="blank"> persyaratan dan ketentuan </a></label>
+                    <label for=""><input type="checkbox" name="agree"  id="setuju" required> Dengan ini saya setuju dan mematuhi <a href="https://kai.id/corporate/passenger_services/1" target="blank"> persyaratan dan ketentuan </a></label>
                 </div>
-                
                 <div class="btn-two-cols-wrapper">
                     <div class="clearfix"></div>
                     <div class="pull-right">
-                        <button class="btn btn-primary" id="bayar" name="submitbutton" value="Pesan" type="button" >Pesan</button>
+                        <button class="btn btn-primary" enabled="enabled" id="bayar" name="submitbutton" value="Pesan" type="button" disabled="disabled">Pesan</button>
                     </div>
                 </div>
             </div> 
-                
+                </form>
             
-        </div></form>
+        </div>
     </div>
 
 
 
-<div class="modal fade top" id="confirmLogin" tabindex="-1" role="dialog" arialabelledby="confirmLoginModal" style="display: none;">
+<div class="modal fade top" id="confirmLogin" tabindex="-1" role="dialog" arialabelledby="confirmLoginModal">
     <div class="modal-dialog modal-frame" role="document">
         <div class="modal-content">
-        <form method="POST" action="https://booking.kai.id/auth/login" accept-charset="UTF-8" id="login"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+        <form method="POST" action="https://booking.kai.id/auth/login" accept-charset="UTF-8" id="login"><input name="_token" type="hidden" value="wdmxSVG4SEgEVybsjOl9BKQtp8O1pwihLCfOSdg7">
             <div class="modal-header">
                 <h4 class="modal-title" id="exampleModalLabel">Login</h4>
             </div>
@@ -472,15 +409,15 @@ div.im-colormask > div {
 
                 <div class="input-group" style="margin-bottom: 25px">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input class="form-control" id="username" placeholder="Email atau Nomor HP" required="" name="username" type="text">
+                    <input class="form-control" id="username" placeholder="Email atau Nomor HP" required name="username" type="text">
                 </div>
                 <div class="input-group" style="margin-bottom: 25px">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input class="form-control pass" placeholder="Password" required="" name="password" type="password" value="">
+                    <input class="form-control pass" placeholder="Password" required name="password" type="password" value="">
                     <i class="glyphicon glyphicon-eye-open form-control-feedback" style="color:black"></i>
                     <input name="search" type="hidden" value="ticket">
                 </div>
-            <a href="/register">Registrasi</a>
+            <a href="https://booking.kai.id/register">Registrasi</a>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Pesan Tanpa Daftar</button>
@@ -529,7 +466,7 @@ div.im-colormask > div {
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Passenger List</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <p class="text-justify">Silakan pilih data penumpang pada list di bawah ini:</p>
@@ -549,7 +486,7 @@ div.im-colormask > div {
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Passenger List</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <p class="text-justify">Silakan pilih data penumpang pada list di bawah ini:</p>
@@ -583,8 +520,8 @@ div.im-colormask > div {
         </div> <!-- end of container -->
 	</div> <!-- end of content-wrapper -->
 </div>
-      <!-- Scripts -->
-      <script>
+    <!-- Scripts -->
+    <script>
         BASE_URL = "https://booking.kai.id"+"/";
     </script>
     <script src="https://booking.kai.id/js/apps.js"></script>
@@ -602,9 +539,11 @@ div.im-colormask > div {
     <script src="https://booking.kai.id/js/inputmask/inputmask.js"></script>
     <script src="https://booking.kai.id/js/inputmask/jquery.inputmask.bundle.js"></script>
     <script src="https://booking.kai.id/js/inputmask/inputmask.numeric.extensions.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?" async defer></script>
 
 
 <script type="text/javascript">
+    $('#bayar').attr('disabled', true);
     localStorage.setItem("captcha", "0");
     // copy data passenger
     APP.copyData();
@@ -613,7 +552,7 @@ div.im-colormask > div {
     // enable submit button when check agreement
     APP.enableSubmitPassengerData();
     // validate user data
-    APP.validatePassengerData("2022-11-29");
+    APP.validatePassengerData("2022-12-07");
     // init select2
     APP.initSelect2();
     // set max length id number
@@ -622,21 +561,26 @@ div.im-colormask > div {
     APP.showPassword();
 
     // set depature date
-    var initdate = '2022-11-29';
+    var initdate = '2022-12-07';
     depatureDate = APP.formatDate(initdate,true, ' ');
     // set depature date
     $('.depature_date').append(depatureDate);
 
-    var pass_data = null;
+    var pass_data = [];
     APP.applyPassData(pass_data);
 
     // check if user has login
-            $(window).on('load',function(){
-            $('#confirmLogin').modal({backdrop: 'static', keyboard: false});
-        });
-
+            var date = '';
+        var brithdate = new Date(date);
+            var dd =brithdate.getDate();
+            var mm =brithdate.getMonth();
+            var yyyy = brithdate.getFullYear();
+        $('#pemesan_tanggallahir').datepicker('setDate', new Date(yyyy,mm,dd));
     
     function enableSubmitPassengerData() {
+        if ($('input[name=agree]:checked').length > 0) {
+            $('#bayar').attr('disabled', false);
+        }
         localStorage.setItem("captcha", "1");
     }
 
@@ -654,6 +598,35 @@ div.im-colormask > div {
     <script>
 APP.callModalCancel();
 </script>
+<script>
+    const username = localStorage.getItem("uname")
+    document.querySelector(".username").innerHTML = username
+    async function keluar(){
+        try {
+               var requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+                };
 
+                const response = await fetch("http://localhost:3000/api/logout", requestOptions)
+                const json = await response.json()
+                console.log(json)
+                
+                if (json.status == 200) {
+                    swal("Logout Successfully !", `Status ${json.status}`, "success")
+                    .then(function(){
+                        window.location.href="http://localhost:3000/"
+                    })
+                } else {
+                    swal(json.message,`Status ${json.status}`,"warning")
+                }
+                    } catch (error) {
+                        console.log(error)
+                    }
+       
+    }
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge expires in two minutes" src="./PT Kereta Api Indonesia - Passenger Data_files/bframe.html" name="c-izw4vs1yna2a" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" style="width: 100%; height: 100%;"></iframe></div></div></body></html>
+</body>
+</html>

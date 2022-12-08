@@ -3,6 +3,8 @@ const { Sequelize, Model, DataTypes } = require("sequelize");
 const sequelize = new Sequelize("sqlite::memory:");
 const User = modelUser.userModel
 const jwt = require('jsonwebtoken')
+const bcrypt = require("bcryptjs");
+const config = require("../config/auth.config");
 
 exports.signup = function(req,res){
     (async () => {
@@ -18,114 +20,77 @@ exports.signup = function(req,res){
             var jenis_kelamin  = post.member_title;
 
             // const salt    = await bcrypt.genSalt()
-            // const hashPassword = await bcrypt.hash(password, salt)
+            const hashPassword = await bcrypt.hashSync(password, 8)
             
-            if (Object.keys(email).length === 0 || Object.keys(username).length === 0 || Object.keys(password).length === 0) {
-                const status =({
-                    message: "Field cannot empty !",
-                    status: 400
-                })
-                res.status(400).json(status)
-                return
-            }
+            const user = await User.findOne({where:{user_id:user_id}})
+            if(user) return res.status(400).json({message:`[User_id]: ${user_id} already exist !`}) 
+            const isEmailExist = await User.findOne({where:{email:email}})
+            if(isEmailExist) return res.status(400).json({message:`[Email]: ${email} already exist !`}) 
 
             const newUser = await User.create({ 
                 username: username,
                 email: email,
-                password: password,
+                password: hashPassword,
                 user_id: user_id,
                 tipe_id: tipe_id,
                 jenis_kelamin: jenis_kelamin,
                 tgl_lahir: tgl_lahir,
                 user_telp: user_telp,
             });
+
             const status =({
                 message: "Register successfully !!",
+                username: `${newUser.username}`,
                 status: 200
             })
-            console.log("New User auto-generated username:", newUser.username);
             res.json(status)
             
         } catch (error) {
-            let message = error
-            let flag = Object.keys(error).length === 0;
-            if (flag) {
-                message = "Error !! Please check field requirement"   
-            } else {
-                message = error.parent.sqlMessage
-            }
             let status = ({
-                message: message,
+                message: error,
                 status: 404
             })
             res.status(404).json(status)
-            console.log(error)
         }
     })();
 }
 
 exports.login = function(req,res){
-    // res.send("login")
     (async () => {
         try {
             var email = req.body.email
             var password = req.body.password
-            const user = await User.findOne({
-                where:
-                {
-                    email: email
-                }
-            })
-
-            if (user){
-                // const match = await bcrypt.compare(password, user.password)
-                // if(!match) {
-                //     res.status(400).send("Wrong password !")
-                // } else {
-                    // const userEmail = user.email
-                    // const userPhone = user.no_telp
-                    
-                    // const accesToken = jwt.sign({userEmail,userPhone}, process.env.ACCESS_TOKEN_SECRET,{
-                    //     expiresIn: '60s'
-                    // })
-
-                    // const refreshToken = jwt.sign({userEmail,userPhone}, process.env.REFRESH_TOKEN_SECRET,{
-                    //     expiresIn: '1d'
-                    // })
-
-                    // await User.update({ refresh_token: refreshToken },{
-                    //     where: {
-                    //         email: userEmail
-                    //     }
-                    // })
-
-                    // res.cookie('refreshToken',refreshToken,{
-                    //     httpOnly: true,
-                    //     maxAge  : 24 * 60 * 60 * 100
-                    // })
-
-                    // const response = ({
-                    //     accesToken: accesToken,
-                    //     status: 200
-                    // })
-                    const response = ({
-                            msg: "Login Sukses",
-                            status: 200
-                    })
-                    res.status(200).send(response)
-                // }
-            } else {
-                const status = ({
-                    message: "User not found !",
-                    status: 400
-                })
-                res.status(400).json(status)
-            }
             
+            const user = await User.findOne({where:{email: email}})
+            if (!user) return res.status(400).json({message:"User not found !"})
+            const match = await bcrypt.compareSync(password, user.password)    
+            if(!match) return res.status(400).json({message:"Wrong Password !"})
+            
+            const db_username = user.username
+            const db_email    = user.email
+            const token = jwt.sign({id:db_username}, config.secret, {
+                expiresIn: 86400, // 24 hours
+            });
+            console.log(token)
+            req.session.token = token;
+
+            res.status(200).json({message:"Login Sukses !",token:token,status:200})
+
         } catch (error) {
-            res.status(404).send("Something error, please check the field !")
-            if (error) throw error
-            console.log(error)
+            res.status(400).json({message:error})
+            console.log(error)            
         }
     })();
+}
+
+exports.logout = async(req,res)=>{
+    try {
+        req.session = null 
+        return res.status(200).json({
+            message: "You've been signed out!",
+            status:200
+        });
+    } catch (error) {
+        res.status(400).send(error)
+    }
 }

@@ -1,4 +1,5 @@
 const form = document.querySelector("#ini_form")
+const url = "http://localhost:3000/api/register"
 
 form.addEventListener("submit",async(e)=>{
     e.preventDefault()

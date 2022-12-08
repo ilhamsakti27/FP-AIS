@@ -1,7 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
   const User = sequelize.define("users", {
 
-
     no_hp: {
       type: Sequelize.STRING
     },

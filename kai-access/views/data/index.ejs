@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+    <meta name="csrf-token" content="884mhM9RmEsPp5krnCFlW4jXMcXlzu0TiZfVQI8t">
 
     <title>PT Kereta Api Indonesia -      Reservasi Tiket
 </title>
@@ -56,11 +56,18 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                                                    <li class="nav-item">
-                                <a class="nav-link" href="./login">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./register">Register</a>
+                                                    <li class="dropdown">
+                                <a id="navbarDropdown" class="dropdown-toggle username" href="#" role="button" data-toggle="dropdown">
+                                    BAGUS RIDHO R <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                                                            <li><a class="dropdown-item"
+                                        onclick="keluar();">
+                                            Keluar
+                                        </a></li>
+                                     
+                                                                    </ul>
                             </li>
                                             </ul>
                     </div>
@@ -68,7 +75,7 @@
         </nav>	<div id="content-wrapper">
 	    <div class="container">
 
-							<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.1.5/css/iziToast.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.1.5/js/iziToast.min.js"></script><script>iziToast.({title: "",message: "",});</script> -->
+							<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.1.5/css/iziToast.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.1.5/js/iziToast.min.js"></script><script>iziToast.({title: "",message: "",});</script>
 			
                     <div class="top-cols">
                             <div class="goesto">Pemesanan Tiket Kereta Api</div>
@@ -118,7 +125,7 @@
                                     <label for="departure_dateh" class="goesto field-label-search">Tanggal Keberangkatan</label>
                                     <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-calendar-check fa" aria-hidden="true"></i></span>
-                                        <input type="text" name="tanggal" value="" id="departure_dateh" class="form-control no-type" data-error="Mohon diisi tanggal" required="required" onkeypress="">
+                                        <input type="text" name="tanggal" value="" id="departure_dateh" class="form-control no-type" data-error="Mohon diisi tanggal" required="required" onkeypress="return: false;">
                                     </div>
                                     <div class="help-block with-errors"></div>
                                 </div>
@@ -183,7 +190,7 @@
     <script src="https://booking.kai.id/js/slick.min.js"></script>
     <script src="https://booking.kai.id/js/inputValidate.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
-
+    <!-- Inputmask -->
     <script src="https://booking.kai.id/js/inputmask/inputmask.js"></script>
     <script src="https://booking.kai.id/js/inputmask/jquery.inputmask.bundle.js"></script>
     <script src="https://booking.kai.id/js/inputmask/inputmask.numeric.extensions.js"></script>
@@ -282,6 +289,36 @@
     APP.addPassengerVal('.btn-number');
     APP.filterSchedule();
     APP.noAllowType();
+</script>
+<script>
+   const username = localStorage.getItem("uname")
+    document.querySelector(".username").innerHTML = username
+    async function keluar(){
+        try {
+               var requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+                };
+
+                const response = await fetch("http://localhost:3000/api/logout", requestOptions)
+                const json = await response.json()
+                console.log(json)
+                
+                if (json.status == 200) {
+                    swal("Logout Successfully !", `Status ${json.status}`, "success")
+                    .then(function(){
+                        window.location.href="http://localhost:3000/"
+                    })
+                } else {
+                    swal(json.message,`Status ${json.status}`,"warning")
+                }
+                    } catch (error) {
+                        console.log(error)
+                    }
+       
+    }
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </script>
     </body>
 </html>

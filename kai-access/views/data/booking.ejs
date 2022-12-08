@@ -55,14 +55,20 @@
                             
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                                                    <li class="nav-item">
-                                <a class="nav-link" href="/login">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/register">Register</a>
-                            </li>
-                                            </ul>
+                            <!-- Authentication Links -->
+                                                        <li class="dropdown">
+															<a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"><span class="username">BAGUS RIDHO R </span><span class="caret"></span>
+															</a>
+    
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                                                <li><a class="dropdown-item"
+                                            onclick="keluar();">
+                                                Keluar
+                                            </a></li>
+                                         
+                                                                        </ul>
+                                </li>
+                                                </ul>
                     </div>
             </div>
         </nav>	<div id="content-wrapper">
@@ -956,5 +962,34 @@
     APP.noAllowType();
 
 </script>
+<script>
+    const username = localStorage.getItem("uname")
+    document.querySelector(".username").innerHTML = username
+    async function keluar(){
+        try {
+               var requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+                };
+
+                const response = await fetch("http://localhost:3000/api/logout", requestOptions)
+                const json = await response.json()
+                console.log(json)
+                
+                if (json.status == 200) {
+                    swal("Logout Successfully !", `Status ${json.status}`, "success")
+                    .then(function(){
+                        window.location.href="http://localhost:3000/"
+                    })
+                } else {
+                    swal(json.message,`Status ${json.status}`,"warning")
+                }
+                    } catch (error) {
+                        console.log(error)
+                    }
+       
+    }
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </body>
 </html>
