@@ -423,7 +423,6 @@
     <script src="https://booking.kai.id/js/inputmask/inputmask.js"></script>
     <script src="https://booking.kai.id/js/inputmask/jquery.inputmask.bundle.js"></script>
     <script src="https://booking.kai.id/js/inputmask/inputmask.numeric.extensions.js"></script>
-	<script src="js/booking.js"></script>
     <script type="text/javascript">
 	
     $(function() {
@@ -515,8 +514,8 @@
         });
     });
 
-    // APP.initDate( $('#departure_dateh').val(), '2020,1,01',  [["01","01","Tahun Baru Masehi"],["02","01","Tahun Baru Imlek"],["02","28","Isra Mi'raj"],["03","3","Hari Raya Nyepi"],["04","15","Wafat Isa Al Masih"],["05","01","Hari Buruh"],["05","02","Hari Raya Idul Fitri"],["05","03","Hari Raya Idul Fitri"],["05","16","Hari Waisak"],["05","26","Kenaikan Isa Almasih"],["06","01","Hari Lahir Pancasila"],["07","09","Idul Adha"],["07","30","Tahun Baru Islam H 1444"],["08","17","Hari Kemerdekaan RI"],["10","08","Maulid Nabi Muhammad SAW"],["12","24","Cuti Bersama Hari Natal"],["12","25","Hari Natal"]]);
-    // APP.showDate( $('#departure_dateh').val() );
+    APP.initDate( $('#departure_dateh').val(), '2020,1,01',  [["01","01","Tahun Baru Masehi"],["02","01","Tahun Baru Imlek"],["02","28","Isra Mi'raj"],["03","3","Hari Raya Nyepi"],["04","15","Wafat Isa Al Masih"],["05","01","Hari Buruh"],["05","02","Hari Raya Idul Fitri"],["05","03","Hari Raya Idul Fitri"],["05","16","Hari Waisak"],["05","26","Kenaikan Isa Almasih"],["06","01","Hari Lahir Pancasila"],["07","09","Idul Adha"],["07","30","Tahun Baru Islam H 1444"],["08","17","Hari Kemerdekaan RI"],["10","08","Maulid Nabi Muhammad SAW"],["12","24","Cuti Bersama Hari Natal"],["12","25","Hari Natal"]]);
+    APP.showDate( $('#departure_dateh').val() );
     APP.addPassengerVal('.btn-number');
     APP.filterSchedule();
     APP.noAllowType();
@@ -551,5 +550,7 @@
     }
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="js/booking.js"></script>
+
     </body>
-</html>
+    </html>

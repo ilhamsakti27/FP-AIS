@@ -333,14 +333,14 @@
             <div class="column-content-right col-md-4 col-sm-12">
                 <div class="side-column-final-wrapper">
                     <div class="side-column-final">
-                                <div class="top-column">
+                                <div class="top-column harga">
                                         Total
                                         Rp 220.000,-
                                 </div>
                                 <div class="body-column">
-                                    <div class="date depature_date"></div>
+                                    <div class="date departure_date"></div>
                                     <div class="train">Wijayakusuma (116)</div>
-                                    <div class="class">Ekonomi - CA</div>
+                                    <div class=" keretakelas">Ekonomi - CA</div>
                                     <div class="passenger">
                                         1 Dewasa
                                         
@@ -350,8 +350,8 @@
                                         <div class="row">
                                             <div class="col-md-5 col-sm-4 col-xs-4">
                                                 <div class="city">SURABAYA GUBENG</div>
-                                                <div class="time text-muted">23:35</div>
-                                                <div class="time text-muted">7 Des 2022</div>
+                                                   <div class="time text-muted">23:35</div>
+                                                <div class="dept text-muted">7 Des 2022</div>
                                             </div>
                                             <div class="col-md-2 col-sm-4 col-xs-4">
                                                 <div class="arrow"><i class="fas fa-angle-double-right"></i></div>
@@ -359,7 +359,7 @@
                                             <div class="col-md-5 col-sm-4 col-xs-4">
                                                 <div class="city">JEMBER</div>
                                                 <div class="time text-muted">03:10</div>
-                                                <div class="time text-muted">8 Des 2022</div>
+                                                <div class="arrival text-muted">8 Des 2022</div>
                                             </div>
                                         </div>
                                     </div>
@@ -625,6 +625,23 @@ APP.callModalCancel();
                     }
        
     }
+</script>
+<script src="js/passenger.js"></script>
+<script>
+      const _kereta = {
+	"nama":kereta,
+	"origination":origination,
+	"destination":destination,
+	"kelas":kelas,
+	"kelas_gerbong":kelas_gerbong,
+	"harga":harga,
+	"dewasa":dewasa,
+	"infant":infant,
+	"timestart":timestart,
+	"timeend":timeend,
+	"tanggal":tanggal
+}
+localStorage.setItem("kereta",JSON.stringify(_kereta))
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

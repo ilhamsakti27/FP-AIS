@@ -417,7 +417,7 @@
                                                     </div>
                                                     <div id="QRIS-0" class="panel-collapse collapse">
                                                         <div class="panel-body">
-                                                            <ol style="color: rgb(119, 119, 119); font-family: " open="" sans",="" arial,="" sans-serif;"=""><li>Pilih tombol <b>Bayar dengan QRISLINKAJA</b></li><li>Kemudian akan terlihat QR Code di layar</li><li>Buka Aplikasi Dompet Elektronik yang dimiliki dan mendukung fasilitas QRIS</li><li>Pindai/ Scan QR code dari QRIS tersebut</li><li>Periksa kembali detail pembayaran anda</li><li>Jika sudah sesuai konfirmasi dan bayar</li><li>Transaksi Berhasil</li><li>Periksa email anda untuk melihat bukti pemesanan tiket kereta</li></ol>
+                                                            <ol style="color: rgb(119, 119, 119);" ><li>Pilih tombol <b>Bayar dengan QRISLINKAJA</b></li><li>Kemudian akan terlihat QR Code di layar</li><li>Buka Aplikasi Dompet Elektronik yang dimiliki dan mendukung fasilitas QRIS</li><li>Pindai/ Scan QR code dari QRIS tersebut</li><li>Periksa kembali detail pembayaran anda</li><li>Jika sudah sesuai konfirmasi dan bayar</li><li>Transaksi Berhasil</li><li>Periksa email anda untuk melihat bukti pemesanan tiket kereta</li></ol>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <form method="POST" action="https://booking.kai.id/payment" accept-charset="UTF-8" id="payForm3"><input name="_token" type="hidden" value="zsznJ4xwze90qV0uPwHRfMj7eTSDQL7c6HZyLAxY">
                                                                         <input name="paycode" type="hidden" value="212521433962382">
                                                                         <input name="tripid" type="hidden" value="1630604">
@@ -447,12 +447,12 @@
                 <div class="column-content-right col-md-4 col-sm-4">
                     <div class="side-column-final-wrapper">
                         <div class="side-column-final">
-                            <div class="top-column">
+                            <div class="top-column total">
                                     Total Rp  310.000,-
                             </div>
                             
                             <div class="body-column">
-                                <div class="date">Selasa, 20 Desember 2022</div>
+                                <div class="date tanggal-inv">Selasa, 20 Desember 2022</div>
                                 <div class="train">RANGGAJATI (111)</div>
                                 <div class="class">Eksekutif - A</div>
                                 <div class="passenger">
@@ -468,13 +468,13 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                        <div class="col-md-4 col-sm-4 col-xs-4 dewasa">
                                             1 Dewasa
                                         </div>
-                                        <div class="col-md-4 col-sm-4 col-xs-4 text-right">
+                                        <div class="col-md-4 col-sm-4 col-xs-4 text-right harga">
                                             Rp 310.000,-
                                         </div>
-                                        <div class="col-md-4 col-sm-4 col-xs-4 text-right">
+                                        <div class="col-md-4 col-sm-4 col-xs-4 text-right harga">
                                              310.000,-
                                         </div>
                                     </div>
@@ -493,7 +493,7 @@
                                         <div class="col-md-4 col-sm-4 col-xs-4">
                                             &nbsp;
                                         </div>
-                                        <div class="col-md-4 col-sm-4 col-xs-4 text-right">
+                                        <div class="col-md-4 col-sm-4 col-xs-4 text-right harga">
                                             Rp  310.000,-
                                         </div>
                                     </div>
@@ -504,7 +504,7 @@
                                     <div class="row">
                                         <div class="left col-md-8 col-xs-8">
                                             <ol>
-                                                                                                    <li>BAGUS RIDHO R</li>
+                                                                                                    <li class="namapenumpang">BAGUS RIDHO R</li>
                                                                                             </ol>
                                         </div>
                                         <div class="right col-md-4 col-xs-4">
@@ -518,17 +518,17 @@
                             <div class="destionation-wrapper">
                                     <div class="row">
                                         <div class="col-md-5 col-sm-4 col-xs-4">
-                                        <div class="city">Jember</div>
-                                        <div class="time text-muted">05:10</div>
-                                        <div class="time text-muted">20 Des 2022</div>
+                                        <div class="city asal">Jember</div>
+                                        <div class="time text-muted timestart">05:10</div>
+                                        <div class="time text-muted tgl">20 Des 2022</div>
                                         </div>
                                         <div class="col-md-2 col-sm-4 col-xs-4">
                                             <div class="arrow"><i class="fas fa-angle-double-right"></i></div>
                                         </div>
                                         <div class="col-md-5 col-sm-4 col-xs-4">
-                                            <div class="city">Surabaya Gubeng</div>
-                                            <div class="time text-muted">08:52</div>
-                                            <div class="time text-muted">20 Des 2022</div>
+                                            <div class="city tujuan">Surabaya Gubeng</div>
+                                            <div class="time text-muted timeend">08:52</div>
+                                            <div class="time text-muted tgl">20 Des 2022</div>
                                         </div>
                                     </div>
                                 </div><!--//destination-wrapper -->
@@ -705,7 +705,9 @@
             // console.log(jsonPayload)
             return jsonPayload
         }
+       
     </script>
+    <script src="js/checkout.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     </body>
