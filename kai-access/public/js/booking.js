@@ -30,21 +30,19 @@ fetch("https://booking.kai.id/api/stations2", requestOptions)
   .then(result => {
 	result.forEach(element => {
 		if(element.code == origination){
-			console.log(element.name)
 			document.querySelector(".stasiun-asal").innerHTML = element.name
 		}
 		if(element.code == destination){
-			console.log(element.name)
 			document.querySelector(".stasiun-tujuan").innerHTML = element.name
 		}
 	});
   }).then(()=>{
 		if(origination == destination) return alert("stasiun tidak boleh sama !")
-		fetch("https://kai-schedule-api-i7xc-izr25os6w-mesifer.vercel.app/", requestOptions)
+		fetch("http://localhost:5000/Kereta_API", requestOptions)
 		.then(response => response.json())
 		.then(result => {
 			if(result){
-				result.Kereta_API.forEach(el => {
+				result.forEach(el => {
 					if(el.kereta.rute.tujuan == destination ) {
 						console.log("kereta : ",el.kereta.nama_kai)
 						console.log("jadwal kereta : ",el.kereta.jadwal[origination])

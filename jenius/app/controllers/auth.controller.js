@@ -2,7 +2,7 @@ const db = require("../models");
 const config = require("../config/auth.config");
 const User = db.user;
 const Role = db.role;
-
+const Order = db.order;
 const Op = db.Sequelize.Op;
 
 const jwt = require("jsonwebtoken");
@@ -136,3 +136,41 @@ exports.signout = async (req, res) => {
     this.next(err);
   }
 };
+
+
+exports.payment = async (req,res) => {
+  
+  try {
+    let no_hp = req.body.no_hp
+    let total = req.body.total
+    
+    let user = await User.findOne({where:{no_hp:no_hp}})
+    if(!user)return res.status(404).send("User not found !")
+    if(user.pin != req.body.pin) return res.status(400).json({message: "Invalid pin !",status:404})
+    
+    let saldo = user.saldo
+    if( saldo < total ) return res.status(400).json({"message":"Saldo kurang !"})
+    let saldoSisa = saldo - total
+
+    const kode = guidGenerator()
+
+    await User.update({saldo:saldoSisa},{where:{no_hp:no_hp}})
+    const order = await Order.create({  
+      kode_bayar: kode,
+      no_hp: req.body.no_hp,
+      username: user.username,
+      total: req.body.total,
+    });
+
+    res.status(200).json({"status":200,"message":"Payment sukses !","total":total,"saldo":saldoSisa,"kode":kode})
+
+  } catch (error) {
+    res.status(500).send(error)
+  }
+}
+function guidGenerator() {
+  var S4 = function() {
+     return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+  };
+  return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}

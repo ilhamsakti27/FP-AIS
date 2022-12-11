@@ -22,6 +22,7 @@ module.exports = function(app) {
 
   app.post("/api/auth/signin", controller.signin);
   app.post("/api/auth/topup",[authJwt.verifyToken],controller.topup);
+  app.post("/api/auth/payment",[authJwt.verifyToken],controller.payment);
 
   app.post("/api/auth/signout", controller.signout);
 };

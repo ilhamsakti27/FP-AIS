@@ -50,7 +50,7 @@ app.get('/checkout', page.checkout);
 app.post('/api/register',userController.signup)
 app.post('/api/login',userController.login)
 app.get('/api/logout',userController.logout)
-app.get('/api/test',authJwt.verifyToken,testing)
+app.post('/api/booking',userController.booking)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

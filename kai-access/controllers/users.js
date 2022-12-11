@@ -96,3 +96,11 @@ exports.logout = async(req,res)=>{
         res.status(400).send(error)
     }
 }
+
+exports.booking = async(req,res)=>{
+    try {
+        res.send("OK")
+    } catch (error) {
+        
+    }
+}
